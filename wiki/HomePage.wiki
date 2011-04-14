@@ -1,4 +1,4 @@
-#summary SwitchList Home Page
+#summary SwitchList: Summary
 
 = Introduction =
 
