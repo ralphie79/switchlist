@@ -6,6 +6,7 @@ SwitchList is a Macintosh program for automatically making lists of freight cars
 
 The main web page for SwitchList is at http://homepage.mac.com/rbowdidge/railroad/switchlist.html
 
+The main discussion list for SwitchList operation is at http://groups.google.com/group/switchlist
 = Features =
 
  * Large print switch lists are easy to read and look handwritten. Make your operators think you spent all night writing up switch lists!
