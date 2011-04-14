@@ -1,0 +1,25 @@
+#summary Feature ideas for SwitchList
+
+= Introduction =
+
+Here's a list of some of the future features for SwitchList.  Add your own ideas here, and look around for potential features you can add to SwitchList!
+
+
+= Car Movement Ideas =
+
+ * Variable unloading times.  Let some cars sit for two days, other for one.
+ * Add support for setting minimum and maximum train lengths.
+ * Provide siding length for each industry, and make sure there's space for cars being dropped off.
+ * Make sure all switchlists and documents are presenting door assignments, and sorting lists by door.
+ * Support advanced features - cleanout and scale, and icing tracks.  (Requires more explicit yard instructions?)
+
+= Setup Ideas =
+ * Automatically create cargos based on the OPSIG Industry lists.
+ * Automatically create divisions based on the railroad and location, and do an initial placement of cars in divisions.
+ * Change division idea to something closer to "where is this car allowed to leave the layout?"
+
+= Switch List Ideas = 
+ * More realistic switch list forms.
+ * Create better forms and documents for running an active yard.
+ * Create a Coverflow-like UI for selecting the right switchlist.
+ * Control blocking order more explicitly.
