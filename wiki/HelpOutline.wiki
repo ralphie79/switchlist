@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Index to current in-app SwitchList documentation.
 
 = Introduction =
 
