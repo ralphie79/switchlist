@@ -1,0 +1,26 @@
+#summary Public versions of SwitchList
+
+= Introduction =
+
+Master list of public releases of SwitchList.
+
+
+= Details =
+
+Version 0.6.6 (3/6/2011). Fix incorrect behavior for industry names with apostrophes, problems opening files when an industry is associated with no towns. Change “Add more loads” button to add at least two new loads.
+
+Version 0.6.5 (2/26/2011). Generate correct number of cars per session based on cars/week. Improve typewritten switchlists with better font and removal of car type key at bottom. Allow overriding font choices. Fix bug where handwritten dates didn’t match spaces on form. New documentation in Apple Help format.
+
+Version 0.6.4 (2/20/2011). New Southern Pacific-style switchlist, realistic squiggles on duplicate entries, print “empty” instead of “unassigned” when a car is not reserved for a particular cargo.
+
+Version 0.6.3 (2/5/2011). Add support for spotting cars at specific industry doors, new documentation, tool tips to show exact cargo in freight car. Import list of freight cars from text file.
+
+Version 0.6.2 (11/17/2010). Clean up user interface, get rid of 1 yard/town limit, new icon. Printing document now prints switchlists for all trains.
+
+Version 0.6.1 (11/9/2010). Added car types tab and UI for car types. File format changed to v3 to have CarType objects rather than just strings.
+
+Version 0.5.3 (10/31/2010). Crash on clearing loads. Add layout info tab. Let “layout date” appear on printed switchlists.
+
+Version 0.5.2 (10/31/2010). Fix crashes when reopening preference or help windows.
+
+Version 0.5.1, (10/31/2010). First official release. PowerPC/Intel binary.
