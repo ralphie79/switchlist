@@ -1,0 +1,129 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This is the current layout for the HTML-based AppleHelp for SwitchList.
+
+General format is topic, _page name_.
+
+= Details =
+
+==Main pages==
+
+General "How To" and introduction pages.
+
+Main Page: _SwitchList.html_  REDO to better group what we want here.
+
+Key Features: _pg1.html_ REDO.  Needed?
+
+Setting Up a Layout with SwitchList _pg2.html_ ADD MORE CONTENT
+
+Running an Operating Session with Switchlist _pg3.html_ ADD MORE CONTENT
+
+Switchlist styles: _pg4.html_ ADD more content for different switchlists.
+
+Reports: _pg5.html_ ADD more content.
+
+Example Layouts _pg6.html_
+
+Acknowledgements _pg7.html_ 
+
+Problems:
+
+==Conceptual documents==
+high level descriptions of what Switchlist Does.
+
+In Depth Topics: _pg10.html_ Needs intro.
+
+Best layouts for SwitchList _pg11.html_ Still to be written.
+
+How SwitchList decides which cars should move _pg12.html_ 
+
+How to design cargos _pg13.html_ 
+
+==User Interface Elements==
+
+User interface elements _pg20.html_
+
+Freight cars _pg21.html_
+
+Yards _pg22.html_
+
+Layout tab _pg23.html_
+
+Industries tab _pg24.html_
+
+Towns _pg25.html_
+
+Trains _pg26.html_
+
+Cargos _pg27.html_
+
+Overview _pg28.html_
+
+Preferences _pg29.html_  Does not exist.
+
+Set Train Path _pg30.html_ Does not exist.
+
+==SwitchList In Detail==
+SwitchList in Detail _pg50.html_
+
+Detail:Divisions for cars and industries  _pg51.html_
+
+Detail: Importing freight cars _pg52.html_
+
+Detail: Choosing car types, and details about AAR classifications. _pg53.html_
+
+Detail: Viewing SwitchLists on iPad _pg54.html_
+
+Detail: spotting cars at particular doors _pg55.html_
+
+==SwitchList Forms==
+
+SwitchList forms: (pg4 contains the full list)
+
+Large Type SwitchList _pg70.html_
+
+Narrow Southern Pacific Style _pg71.html_
+
+Traditional From/To _pg72.html_
+
+Drop Off / Pick Up _pg73.html_
+
+==Definitions==
+
+Definitions: _pg100.html_
+
+What are staging towns _pg101.html_
+
+What are offline towns _pg102.html_
+
+What is workbench _pg103.html_
+
+What counts as an industry? _pg104.html_
+
+What counts as a yard? _pg105.html_
+
+How to represent interchanges? _pg106.html_
+
+==Customizing==
+
+Customization _pg200.html_
+
+Changing default fonts _pg201.html_
+
+==Style guide for HTML:==
+
+HTML
+
+H1 for title
+
+h2 for major sections
+
+All content should be in a <div id=leftspace">
+
+All inline images should use the "floatRight" class to be against the right margin and take 30% of the column.  All images should have a link to the full image.
+
+==Process==
+
+Run /Developer/Applications/Utilities/Help Indexer.app after every set of changes.
