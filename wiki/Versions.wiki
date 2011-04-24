@@ -7,6 +7,20 @@ Master list of public releases of SwitchList.
 
 = Details =
 
+Version 0.7.0 (4/23/2011).  New switchlists, fixed rate cargos, better documentation.
+
+Changes include:
+  * New switchlists: 
+    * San Francisco Belt Railroad Form B-7
+    * modern PICL report contributed by James McNab
+  * Fixed "Print all" that prints all pretty switchless at once.
+  * New "fixed rate" cargos that ship a fixed number of cars each day.
+  * Fix problem with Web mode where some operations couldn't be done unless the layout was called "Vasona Branch".
+  * Allow problem window messages to be copied.
+  * Search fields in each window now search items with drop-down boxes.
+  * Better error messages when industries and towns are unreachable.
+  * Documentation on how to add door spotting instructions to your switchless.
+
 Version 0.6.6 (3/6/2011). Fix incorrect behavior for industry names with apostrophes, problems opening files when an industry is associated with no towns. Change “Add more loads” button to add at least two new loads.
 
 Version 0.6.5 (2/26/2011). Generate correct number of cars per session based on cars/week. Improve typewritten switchlists with better font and removal of car type key at bottom. Allow overriding font choices. Fix bug where handwritten dates didn’t match spaces on form. New documentation in Apple Help format.
