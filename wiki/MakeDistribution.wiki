@@ -12,17 +12,19 @@ To make a distribution:
 
 2) Update version number in InfoPlist.strings
 
-3) build/switchlistTag SwitchList.version.with.dots
+3) Checkin changed HelpIndexer file and InfoPlist.strings file.
 
-4) Run build/makeDistribution SwitchList.version.with.dots
+4) build/switchlistTag SwitchList.version.with.dots
 
-5) Test
+5) Run build/makeDistribution SwitchList.version.with.dots
 
-6) Copy /tmp/SwitchList-version.dmg to /Volumes/rbowdidge/Sites/railroad/SwitchList-version.dmg
+6) Test
 
-7) Copy /tmp/SwitchList-version.dmg to /Volumes/rbowdidge/Sites/railroad/SwitchList.dmg
+7) Copy /tmp/SwitchList-version.dmg to /Volumes/rbowdidge/Sites/railroad/SwitchList-version.dmg
 
-8) Update web page to show new version.
+8) Copy /tmp/SwitchList-version.dmg to /Volumes/rbowdidge/Sites/railroad/SwitchList.dmg
+
+9) Update web page to show new version.
 
 10) Announce on SwitchList-discuss
 ~                                     
