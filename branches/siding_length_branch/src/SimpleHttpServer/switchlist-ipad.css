@@ -1,0 +1,30 @@
+.switch-list-header TH {
+	background-color:green;
+	color:white; 
+}
+.switch-list TD {
+	font-family:"Arial";
+	height:  40px;
+	border:  2px solid black;
+	padding-left:  10px;
+	padding-right:  10px;
+}
+
+TD#cartype {
+	text-align:  center;
+}
+
+.switch-list-title {
+	font-size: 24pt;
+	text-align:  center;
+	font-weight: bold;
+}
+.switch-list-instructions {
+  text-align: center;
+	margin-top: 10px;
+}
+
+table.switch-list {
+	border-collapse: collapse
+}
+
