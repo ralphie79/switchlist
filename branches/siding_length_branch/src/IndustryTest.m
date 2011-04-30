@@ -87,8 +87,7 @@
 
 	Industry *industryB = [self industryAtStation: @"B"];
 	NSLog(@"Industry: %@, industryB: %@", industry, industryB);
-
-	STAssertNil([industryB sidingLength], @"Unset siding length should be nil, not %@.", [industry sidingLength]);
+	STAssertTrue(0 == [[industryB sidingLength] intValue], @"Unset siding length should be nil, not %@.", [industryB sidingLength]);
 }
 
 
