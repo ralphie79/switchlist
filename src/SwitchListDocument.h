@@ -81,6 +81,8 @@
 	IBOutlet NSButton *hasDoorsButton_;
 	IBOutlet NSTextField *doorCountField_;
 	IBOutlet NSTextField *doorCountLabel_;
+	IBOutlet NSTextField *sidingLengthField_;
+	IBOutlet NSTextField *sidingLengthLabel_;
 	
 	// Access to the various controllers of popups so we can sort their contents (and make it
 	// easier to find particular items.

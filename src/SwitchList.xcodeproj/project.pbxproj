@@ -48,6 +48,7 @@
 		3EB0AC0C127BB95000E27063 /* InduYard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0AC0B127BB95000E27063 /* InduYard.m */; };
 		3EB0AC2E127BBBCA00E27063 /* InduYard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0AC0B127BB95000E27063 /* InduYard.m */; };
 		3EB18EE7128A70F200184A88 /* NSMigrationManagerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB18EE6128A70F200184A88 /* NSMigrationManagerCategory.m */; };
+		3EB3D5E6136A7999009F7C71 /* AddSidingLength_3_to_4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3D5E5136A7999009F7C71 /* AddSidingLength_3_to_4.xcmappingmodel */; };
 		3EB507BD13243F2600D85B59 /* StringHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB507BC13243F2600D85B59 /* StringHelpers.m */; };
 		3EB507C213243FA200D85B59 /* StringHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB507BC13243F2600D85B59 /* StringHelpers.m */; };
 		3EB677B8130E4B460012DE1D /* CargoAssignerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB677B7130E4B460012DE1D /* CargoAssignerTest.m */; };
@@ -220,11 +221,13 @@
 		3E9E1F780951605600C5E038 /* IndustryReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryReport.h; sourceTree = "<group>"; };
 		3E9E1F790951605600C5E038 /* IndustryReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryReport.m; sourceTree = "<group>"; };
 		3EA1162213501BC500365DEB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SwitchListReportWindow.xib; sourceTree = "<group>"; };
+		3EA78B5813668D0C00DEE667 /* SwitchListDocument 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SwitchListDocument 4.xcdatamodel"; sourceTree = "<group>"; };
 		3EA80AF90E426FDF009C223A /* PrintEverythingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintEverythingView.h; sourceTree = "<group>"; };
 		3EA80AFA0E426FDF009C223A /* PrintEverythingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintEverythingView.m; sourceTree = "<group>"; };
 		3EB0AC0A127BB95000E27063 /* InduYard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InduYard.h; sourceTree = "<group>"; };
 		3EB0AC0B127BB95000E27063 /* InduYard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InduYard.m; sourceTree = "<group>"; };
 		3EB18EE6128A70F200184A88 /* NSMigrationManagerCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMigrationManagerCategory.m; sourceTree = "<group>"; };
+		3EB3D5E5136A7999009F7C71 /* AddSidingLength_3_to_4.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = AddSidingLength_3_to_4.xcmappingmodel; sourceTree = "<group>"; };
 		3EB507BB13243F2600D85B59 /* StringHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHelpers.h; sourceTree = "<group>"; };
 		3EB507BC13243F2600D85B59 /* StringHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHelpers.m; sourceTree = "<group>"; };
 		3EB677B6130E4B460012DE1D /* CargoAssignerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CargoAssignerTest.h; sourceTree = "<group>"; };
@@ -523,6 +526,7 @@
 				3E3C11D40A39652F0071D6B4 /* Yard.h */,
 				3E3C11D50A39652F0071D6B4 /* Yard.m */,
 				3E7B6EA61287C9F60069FF31 /* AddCarType.xcmappingmodel */,
+				3EB3D5E5136A7999009F7C71 /* AddSidingLength_3_to_4.xcmappingmodel */,
 				3EE3F5C50E4234C2003BA863 /* SwitchListDocument.xcdatamodeld */,
 			);
 			name = Models;
@@ -744,6 +748,7 @@
 				3EF294D81312F40700D2C3F6 /* GlobalPreferences.m in Sources */,
 				3EB507BD13243F2600D85B59 /* StringHelpers.m in Sources */,
 				3EF7D011134C13EA00C76407 /* PICLReport.m in Sources */,
+				3EB3D5E6136A7999009F7C71 /* AddSidingLength_3_to_4.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,8 +1023,9 @@
 			children = (
 				3E042CA110AFD44C0002A609 /* SwitchListDocument 2.xcdatamodel */,
 				3E258A351286618F00D233DB /* SwitchListDocument 3.xcdatamodel */,
+				3EA78B5813668D0C00DEE667 /* SwitchListDocument 4.xcdatamodel */,
 			);
-			currentVersion = 3E258A351286618F00D233DB /* SwitchListDocument 3.xcdatamodel */;
+			currentVersion = 3EA78B5813668D0C00DEE667 /* SwitchListDocument 4.xcdatamodel */;
 			path = SwitchListDocument.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
