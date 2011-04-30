@@ -198,6 +198,7 @@
 	//	[lengthLabel_ setHidden: YES];
 	//	[sidingLengthField_ setHidden: YES];
 	//  [sidingLengthLabel_ setHidden: YES];
+	//  [sidingFeetLabel_ setHidden: YES];
 	//  [minCarsToRunField_ setHidden: YES];
 	//	[minCarsToRunLabel_ setHidden: YES];
 	//	[maxLengthField_ setHidden: YES];
