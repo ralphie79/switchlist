@@ -192,15 +192,17 @@
 	}
 
 	// Disable the car length controls if the layout preference isn't set.
-	NSNumber *useCarLengths = [layoutPrefs objectForKey: @"UseCarLengths"];
-	if (!useCarLengths || [useCarLengths boolValue] == NO) {
-		[lengthField_ setHidden: YES];
-		[lengthLabel_ setHidden: YES];
-		[minCarsToRunField_ setHidden: YES];
-		[minCarsToRunLabel_ setHidden: YES];
-		[maxLengthField_ setHidden: YES];
-		[maxLengthLabel_ setHidden: YES];
-	}
+	// NSNumber *useCarLengths = [layoutPrefs objectForKey: @"UseCarLengths"];
+	// if (!useCarLengths || [useCarLengths boolValue] == NO) {
+	// 	[lengthField_ setHidden: YES];
+	//	[lengthLabel_ setHidden: YES];
+	//	[sidingLengthField_ setHidden: YES];
+	//  [sidingLengthLabel_ setHidden: YES];
+	//  [minCarsToRunField_ setHidden: YES];
+	//	[minCarsToRunLabel_ setHidden: YES];
+	//	[maxLengthField_ setHidden: YES];
+	//	[maxLengthLabel_ setHidden: YES];
+	//}
 
 	[overviewTrainTable_ setDoubleAction: @selector(doGenerateSwitchList:)];
 	
