@@ -231,8 +231,7 @@
 }
 
 - (Yard*) yardAtStation: (NSString*) stationName {
-	InduYard *yard = [entireLayout_ industryWithName: [NSString stringWithFormat: @"%@-yard", stationName]
-									 withStationName: stationName];
+	InduYard *yard = [entireLayout_ industryOrYardWithName: [NSString stringWithFormat: @"%@-yard", stationName]];
 	STAssertTrue([yard isYard], @"Yard is not yard");
 	STAssertNotNil(yard, @"yardAtStation: no yard in %@", stationName);
 	return (Yard*) yard;

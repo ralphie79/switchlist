@@ -86,8 +86,14 @@
 	STAssertTrue(40 == [[industry sidingLength] intValue], @"Siding length not saved correctly.");
 
 	Industry *industryB = [self industryAtStation: @"B"];
-	NSLog(@"Industry: %@, industryB: %@", industry, industryB);
 	STAssertTrue(0 == [[industryB sidingLength] intValue], @"Unset siding length should be nil, not %@.", [industryB sidingLength]);
+}
+
+- (void) testYardSidingLength {
+	[self makeThreeStationLayout];
+	[self makeYardAtStation: @"A"];
+	Yard *yard = [self yardAtStation: @"A"];
+	STAssertTrue(0 == [[yard sidingLength] intValue], @"Yard siding length should be nil, not %@.", [yard sidingLength]);
 }
 
 

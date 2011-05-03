@@ -73,4 +73,9 @@
 	return false;
 }
 
+// If sidingLength isn't defined, say it's zero.
+- (NSNumber*) sidingLength {
+	return nil;
+}
+
 @end
