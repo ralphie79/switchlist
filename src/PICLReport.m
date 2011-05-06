@@ -89,12 +89,13 @@
 		for (InduYard *currentIndustry in industriesInNameOrder) {
 			const char *currentIndustryName = (currentIndustry  ? [[currentIndustry name] UTF8String]: "unknown");
 			const char *currentTownName = (currentTown ? [[currentTown name] UTF8String] : "unknown");
-											 
+			int sidingLengthFeet = [[currentIndustry sidingLength] intValue];
+			
 			// Print section header.
 			[piclString appendFormat: @"\n\n===============================================================================\n"];
-			[piclString appendFormat: @"TRACK: %-21s STATION: %s\n", currentIndustryName, currentTownName];
+			[piclString appendFormat: @"TRACK: %-18s STATION: %-21s     TRACK LENGTH:%4d\n", currentIndustryName, currentTownName, sidingLengthFeet];
 			[piclString appendFormat: @"===============================================================================\n"];
-			[piclString appendFormat: @" Car         LE Block To                                    KD Commodity\n"];
+			[piclString appendFormat: @"Seq Car         LE Block To                                    LG KD Commodity\n"];
 			[piclString appendFormat: @"-------------------------------------------------------------------------------\n"];
 			
 			// Make the list of cars here, sorted in order of car type.
@@ -107,7 +108,8 @@
 			
 			// TODO(mcnab) Currently sorting by Destination in Alphabetical Order.  Should sort in Station Order.
 			NSArray *carsAtIndustrySortedByDestination = [carsAtIndustry sortedArrayUsingFunction: sortCarsByDestination context: nil];
-				 
+			int seq = 1;
+			
 			for (FreightCar *freightCar in carsAtIndustrySortedByDestination) {
 				NSString* contents;
 				if ([freightCar isLoaded]) {
@@ -128,17 +130,20 @@
 				}
 
 				// Print line for this freight car.
-				[piclString appendFormat: @" %-11s %-2s %-21s %-21s %-2s %-15s\n",
-				 [[freightCar reportingMarks] UTF8String],
-				 [LE UTF8String],
-				 [toIndustryName UTF8String],
-				 [[toTown name] UTF8String],
-				 [[[freightCar carTypeRel] carTypeName] UTF8String],
+				[piclString appendFormat: @"%3d %-11s %-2s %-21s %-21s %2d %-2s %-15s\n",
+					seq,
+					[[freightCar reportingMarks] UTF8String],
+					[LE UTF8String],
+					[toIndustryName UTF8String],
+					[[toTown name] UTF8String],
+					[[freightCar length] intValue],
+					[[[freightCar carTypeRel] carTypeName] UTF8String],
 				 [contents UTF8String]];
+				seq++;
 			}
 			[piclString appendFormat: @"-------------------------------------------------------------------------------\n"];
 			int carsAtLocation = [carsAtIndustry count];
-			[piclString appendFormat: @"CARS:  %d\n",carsAtLocation];
+			[piclString appendFormat: @"CARS:%4d\n",carsAtLocation];
 		}
 	}
 	
@@ -147,7 +152,6 @@
 	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
 	[outputFormatter setDateFormat:@"MM/dd/yy"];
 	NSString *newDateString = [outputFormatter stringFromDate: [[owningDocument_ entireLayout] currentDate]];
-	NSLog(@"newDateString %@", newDateString);
 	[outputFormatter release];
 	
 	
@@ -155,7 +159,6 @@
 	NSDateFormatter *outputFormatter1 = [[NSDateFormatter alloc] init];
 	[outputFormatter1 setDateFormat:@"HH:mm:ss"];
 	NSString *newDateString1 = [outputFormatter1 stringFromDate:now1];
-	NSLog(@"newDateString1 %@", newDateString1);
     [outputFormatter1 release];									
 	
 	
