@@ -7,6 +7,8 @@ Master list of public releases of SwitchList.
 
 = Details =
 
+5/9/2011: Announced that SwitchList is now an open source project.
+
 Version 0.7.0 (4/23/2011).  New switchlists, fixed rate cargos, better documentation.
 
 Changes include:
