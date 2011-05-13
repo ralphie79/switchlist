@@ -89,11 +89,10 @@
 		for (InduYard *currentIndustry in industriesInNameOrder) {
 			const char *currentIndustryName = (currentIndustry  ? [[currentIndustry name] UTF8String]: "unknown");
 			const char *currentTownName = (currentTown ? [[currentTown name] UTF8String] : "unknown");
-			int sidingLengthFeet = [[currentIndustry sidingLength] intValue];
 			
 			// Print section header.
 			[piclString appendFormat: @"\n\n===============================================================================\n"];
-			[piclString appendFormat: @"TRACK: %-18s STATION: %-21s     TRACK LENGTH:%4d\n", currentIndustryName, currentTownName, sidingLengthFeet];
+			[piclString appendFormat: @"TRACK: %-18s           STATION: %-21s\n", currentIndustryName, currentTownName];
 			[piclString appendFormat: @"===============================================================================\n"];
 			[piclString appendFormat: @"Seq Car         LE Block To                                    LG KD Commodity\n"];
 			[piclString appendFormat: @"-------------------------------------------------------------------------------\n"];
@@ -110,6 +109,7 @@
 			NSArray *carsAtIndustrySortedByDestination = [carsAtIndustry sortedArrayUsingFunction: sortCarsByDestination context: nil];
 			int seq = 1;
 			
+			Place *currentPlace = nil;
 			for (FreightCar *freightCar in carsAtIndustrySortedByDestination) {
 				NSString* contents;
 				if ([freightCar isLoaded]) {
@@ -117,7 +117,7 @@
 				} else { 
 					contents = @"**EMPTY**";
 				}
-		
+
 				BOOL loaded = [freightCar isLoaded];
 				NSString *LE = (loaded ? @"L" : @"E");
 				
@@ -129,6 +129,14 @@
 					toIndustryName = [[NSString stringWithFormat: @"%@ #%d", toIndustryName, doorToSpot] uppercaseString];
 				}
 
+				if (currentPlace != nil &&
+					[[freightCar nextStop] location] != currentPlace) {
+					// Draw separator only between cars going to different towns, not between
+					// car and heading.
+					[piclString appendFormat: @"-------------------------------------------------------------------------------\n"];
+				}
+				currentPlace = [[freightCar nextStop] location];
+				
 				// Print line for this freight car.
 				[piclString appendFormat: @"%3d %-11s %-2s %-21s %-21s %2d %-2s %-15s\n",
 					seq,
@@ -141,9 +149,25 @@
 				 [contents UTF8String]];
 				seq++;
 			}
-			[piclString appendFormat: @"-------------------------------------------------------------------------------\n"];
+
 			int carsAtLocation = [carsAtIndustry count];
-			[piclString appendFormat: @"CARS:%4d\n",carsAtLocation];
+			int carsAtLocationLength = 0;
+			int carsAtLocationLoaded = 0;
+
+			for (FreightCar *car in carsAtIndustry) {
+				carsAtLocationLength += [[car length] intValue];
+				if ([car isLoaded]) {
+					carsAtLocationLoaded += 1;
+				}
+			}
+
+			int carsAtLocationEmpty = carsAtLocation  - carsAtLocationLoaded;
+			[piclString appendFormat: @"-------------------------------------------------------------------------------\n"];
+			[piclString appendFormat: @"LOADS:%4d     EMPTY:%4d     CARS:%4d                           LENGTH: %4d\n",
+			    carsAtLocationLoaded,
+				carsAtLocationEmpty,
+				carsAtLocation,
+				carsAtLocationLength];
 		}
 	}
 	
@@ -191,7 +215,7 @@
 	[[NSPrintInfo sharedPrintInfo] setVerticalPagination: NSAutoPagination];
 	[[NSPrintInfo sharedPrintInfo] setVerticallyCentered: NO];
 	[[NSPrintInfo sharedPrintInfo] setHorizontallyCentered: YES];
-	[[NSPrintInfo sharedPrintInfo] setTopMargin:50.0];
+	[[NSPrintInfo sharedPrintInfo] setTopMargin:20.0];
 	[[NSPrintInfo sharedPrintInfo] setBottomMargin:50.0];
 	[[NSPrintInfo sharedPrintInfo] setLeftMargin:10.0];
 	[[NSPrintInfo sharedPrintInfo] setRightMargin:10.0];
