@@ -10,13 +10,13 @@ The first, "pretty", switchlists, imitate printed forms with handwritten entries
 
 == Computer-generated / Typed Switchlists ==
 
-The second style of switchlist imitates computer-generated paperwork, and are easy to create even if you have't had a lot of programming experience.  The computer-generated switchlists are subclasses of the TextSwitchListView.  Check out the PICLReport class for ideas about how to write your own, or follow the steps below.
+The second style of switchlist imitates computer-generated paperwork, and are easy to create even if you have't had a lot of programming experience.  The computer-generated switchlists are subclasses of the TextSwitchListView.  Check out the PICLReport or SwitchListReport classes for ideas about how to write your own, or follow the steps below.
 
 = Creating Your Own Computer-Generated Switchlist Style =
 
 There are five steps you need to do to create your own switchlist:
 
-1) Create a new class that is a subclass of the TextSwitchListView.
+1) Create a new class that is a subclass of the TextSwitchListView.  Create the .h and .m file for the class.
 
 2) Define a headerString method that names the message that should appear at the top of each switchlist:
 
