@@ -49,7 +49,7 @@ There are five steps you need to do to create your own switchlist:
 enum SwitchListStyle {
 	Undefined=0,
 	SanFranciscoBeltLineB7Style=6,
-    MyNewSwitchListStyle=7  // I changed this!
+        MyNewSwitchListStyle=7  // I changed this!
 };
 }}}
 
