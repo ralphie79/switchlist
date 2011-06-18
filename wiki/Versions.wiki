@@ -15,7 +15,7 @@ Changes include:
   * New switchlists: 
     * San Francisco Belt Railroad Form B-7
     * modern PICL report contributed by James McNab
-  * Fixed "Print all" that prints all pretty switchless at once.
+  * Fixed "Print all" that prints all switchlists for all trains at once.
   * New "fixed rate" cargos that ship a fixed number of cars each day.
   * Fix problem with Web mode where some operations couldn't be done unless the layout was called "Vasona Branch".
   * Allow problem window messages to be copied.
