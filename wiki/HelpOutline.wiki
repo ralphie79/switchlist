@@ -2,9 +2,9 @@
 
 = Introduction =
 
-This is the current layout for the HTML-based AppleHelp for SwitchList.
+This is the current layout for the HTML-based AppleHelp for SwitchList.  It's useful both for identifying the file containing a particular topic, and understanding where to add new pages.
 
-General format is topic, _page name_.
+General format is topic, (page name), current status.
 
 = Details =
 
@@ -12,105 +12,105 @@ General format is topic, _page name_.
 
 General "How To" and introduction pages.
 
-Main Page: _SwitchList.html_  REDO to better group what we want here.
+Main Page: (SwitchList.html)  REDO to better group what we want here.
 
-Key Features: _pg1.html_ REDO.  Needed?
+Key Features: (pg1.html) REDO.  Needed?
 
-Setting Up a Layout with SwitchList _pg2.html_ ADD MORE CONTENT
+Setting Up a Layout with SwitchList (pg2.html) ADD MORE CONTENT
 
-Running an Operating Session with Switchlist _pg3.html_ ADD MORE CONTENT
+Running an Operating Session with Switchlist (pg3.html) ADD MORE CONTENT
 
-Switchlist styles: _pg4.html_ ADD more content for different switchlists.
+Switchlist styles: (pg4.html) ADD more content for different switchlists.
 
-Reports: _pg5.html_ ADD more content.
+Reports: (pg5.html) ADD more content.
 
-Example Layouts _pg6.html_
+Example Layouts (pg6.html)
 
-Acknowledgements _pg7.html_ 
+Acknowledgements (pg7.html)
 
 Problems:
 
 ==Conceptual documents==
 high level descriptions of what Switchlist Does.
 
-In Depth Topics: _pg10.html_ Needs intro.
+In Depth Topics: (pg10.html) Needs intro.
 
-Best layouts for SwitchList _pg11.html_ Still to be written.
+Best layouts for SwitchList (pg11.html) Still to be written.
 
-How SwitchList decides which cars should move _pg12.html_ 
+How SwitchList decides which cars should move (pg12.html)
 
-How to design cargos _pg13.html_ 
+How to design cargos (pg13.html) 
 
 ==User Interface Elements==
 
-User interface elements _pg20.html_
+User interface elements (pg20.html)
 
-Freight cars _pg21.html_
+Freight cars (pg21.html)
 
-Yards _pg22.html_
+Yards (pg22.html)
 
-Layout tab _pg23.html_
+Layout tab (pg23.html)
 
-Industries tab _pg24.html_
+Industries tab (pg24.html)
 
-Towns _pg25.html_
+Towns (pg25.html)
 
-Trains _pg26.html_
+Trains (pg26.html)
 
-Cargos _pg27.html_
+Cargos (pg27.html)
 
-Overview _pg28.html_
+Overview (pg28.html)
 
-Preferences _pg29.html_  Does not exist.
+Preferences (pg29.html)  Does not exist.
 
-Set Train Path _pg30.html_ Does not exist.
+Set Train Path (pg30.html) Does not exist.
 
 ==SwitchList In Detail==
-SwitchList in Detail _pg50.html_
+SwitchList in Detail (pg50.html)
 
-Detail:Divisions for cars and industries  _pg51.html_
+Detail:Divisions for cars and industries  (pg51.html)
 
-Detail: Importing freight cars _pg52.html_
+Detail: Importing freight cars (pg52.html)
 
-Detail: Choosing car types, and details about AAR classifications. _pg53.html_
+Detail: Choosing car types, and details about AAR classifications. (pg53.html)
 
-Detail: Viewing SwitchLists on iPad _pg54.html_
+Detail: Viewing SwitchLists on iPad (pg54.html)
 
-Detail: spotting cars at particular doors _pg55.html_
+Detail: spotting cars at particular doors (pg55.html)
 
 ==SwitchList Forms==
 
 SwitchList forms: (pg4 contains the full list)
 
-Large Type SwitchList _pg70.html_
+Large Type SwitchList (pg70.html)
 
-Narrow Southern Pacific Style _pg71.html_
+Narrow Southern Pacific Style (pg71.html)
 
-Traditional From/To _pg72.html_
+Traditional From/To (pg72.html)
 
-Drop Off / Pick Up _pg73.html_
+Drop Off / Pick Up (pg73.html)
 
 ==Definitions==
 
-Definitions: _pg100.html_
+Definitions: (pg100.html)
 
-What are staging towns _pg101.html_
+What are staging towns (pg101.html)
 
-What are offline towns _pg102.html_
+What are offline towns (pg102.html)
 
-What is workbench _pg103.html_
+What is workbench (pg103.html)
 
-What counts as an industry? _pg104.html_
+What counts as an industry? (pg104.html)
 
-What counts as a yard? _pg105.html_
+What counts as a yard? (pg105.html)
 
-How to represent interchanges? _pg106.html_
+How to represent interchanges? (pg106.html)
 
 ==Customizing==
 
-Customization _pg200.html_
+Customization (pg200.html)
 
-Changing default fonts _pg201.html_
+Changing default fonts (pg201.html)
 
 ==Style guide for HTML:==
 
