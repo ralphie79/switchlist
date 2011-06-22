@@ -7,6 +7,8 @@ Master list of public releases of SwitchList.
 
 = Details =
 
+Version 0.7.2 (6/21/2011). This release provides a much-improved PICL report switchlist (thanks to James McNab!).  It also includes many cleanup changes to the switchlist display and printing code.  These changes make it easy to write your own switch list format, and may make the code work better on non-US sized paper.
+
 5/9/2011: Announced that SwitchList is now an open source project.
 
 Version 0.7.0 (4/23/2011).  New switchlists, fixed rate cargos, better documentation.
