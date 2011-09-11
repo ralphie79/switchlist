@@ -7,6 +7,8 @@ Master list of public releases of SwitchList.
 
 = Details =
 
+Version 0.8.0 (9/10/2011).  User-defined switchlist templates now supported, with documentation on how to create them.
+
 Version 0.7.4 (8/23/2011).  Simplifies messing with the web server display by using HTML templates and a templating engine.
 
 Version 0.7.3 (8/21/2011).  This release is all about improving the web server feature.  The web server now shows a window when it's active showing the URL for reaching the server, and uses IP addresses ("10.0.0.7") instead of long names to make typing in the server's address easier.  The web interface also now has a list of cars grouped by industry for easier setup.
