@@ -71,7 +71,7 @@ The Thomas template loops over all cars with some lines like this:
 {% /for %}
 </ol>
 }}}
-The &gt;ol&lt; tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (&gt;li&lt;) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
+The `<ol>` tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (`<li>`) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
 
 == Template Variables ==
 
@@ -79,11 +79,11 @@ The key to defining templates is knowing what values you can print in a switchli
 
 == Variables Accessible to Switch List Template == 
 The following variables are accessible from templates:
-* train: current train
-* firstStation: string version of station where train originates.
-* freightCars: list of freight cars being carried in visiting order (FreightCar objects)
-* layout: current layout (Layout object).
-* randomValue: integer value between 0 and 9, used for putting fingerprints, dogear or other bits of realism on switchless.
+|| train || current train. (Train object) ||
+|| firstStation || string version of station where train originates. ||
+|| freightCars || list of freight cars being carried in visiting order (contains FreightCar objects) ||
+|| layout || current layout. (Layout object) ||
+|| randomValue || integer value between 0 and 9, used for putting fingerprints, dogear or other bits of realism on switchlists. ||
 
 Some of these variables are plain values (such as firstStation or randomValue), while others are objects containing their own values.
 
