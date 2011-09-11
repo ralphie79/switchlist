@@ -4,7 +4,21 @@
 
 SwitchList now allows you to create your own custom, fancy switchlists so you can match handwritten or computer generated switch lists from your favorite railroad.  You describe your switchlist using an HTML "template" - a web page with placeholders at the location of details to fill in later - and the SwitchList program will use your template to present your switchlist on the web interface and normal SwitchList interface.
 
+== Example Switchlist Template: Thomas  ==
+
+Let's start off with an example of a switchlist style you could create yourself.
+
+The Thomas switchlist template uses large text written in the Comic Sans handwritten font and a cartoon picture of a train to display a switchlist more suitable for the four-year-old model railroaders on your layout.  It loads the pictures from the Internet, and positions the pictures using standard HTML formatting.
+
+Here is an example of the Thomas switchlist style in action: [http://homepage.mac.com/rbowdidge/railroad/Thomas.html]
+
+Here is the HTML template that creates it: [http://code.google.com/p/switchlist/source/browse/trunk/template_examples/Thomas/switchlist.html]
+
+If you look at the HTML template, you'll see exactly what you'd need to create for your own switchlist.  Now, let's back up and understand what goes into that template.
+
 == Templates ==
+
+To create a new switchlist, you create a web page (HTML file) but use special placeholders to note where the names of freight cars or the layout appears, and use some special text to instruct what should happen with optional text.  The placeholders and special text you add to the file can be referred to as a "template language" because it's actually a tiny programming language instructing SwitchList how to draw your form.
 
 SwitchList's template language is borrowed from MGTemplateEngine open source project.  (It's similar to other template tools used for creating web pages, such as Django templates.)  Placeholders in your template are strings wrapped in a pair of curly brackets.  Writing the following in your switchlist template
 {{{
@@ -31,7 +45,22 @@ Templates can also use conditions.  This snippet either prints "LOADED" if the f
 {{{
 {% if freightCar.isLoaded %} LOADED {% else %} EMPTY {% /if %} 
 }}}
-See the full <A HREF="http://mattgemmell.com/2008/05/20/mgtemplateengine-templates-with-cocoa">documentation for MGTemplateEngine</a> to learn more about what you can put in templates, or look at some of the example switchless.
+See the full <A HREF="http://mattgemmell.com/2008/05/20/mgtemplateengine-templates-with-cocoa">documentation for MGTemplateEngine</a> to learn more about what you can put in templates, or look at some of the example switchlists.
+
+Now, let's return to the Thomas example now that we've learned how templates work.  The Thomas template loops over all cars with some lines like this:
+{{{
+<ol>
+{% for car in train.allFreightCarsInVisitOrder %}
+  <p>
+  <li>Move the {{car.carTypeRel.carTypeDescription}}
+  <span class="reportingMarks">{{car.reportingMarks}}</span>
+  from   <b>{{car.currentLocation.name}}</b> to
+  …
+{% /for %}
+</ol>
+}}}
+The `<ol>` tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (`<li>`) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
+
 
 == Template Filters: ==
 
@@ -52,28 +81,6 @@ See the default switchlist for an example of jitter's use.
 To create your own special switchlist, create a folder in ~/Library/Application Support/SwitchList with the name of your switch list style, and place a switchlist.html and, if you want, switchlist.css file in there to get started.
 
 For example, if I wanted a new switchlist called "WP", I would make sure the SwitchList folder existed in Library/Application Support, then create a new directory called WP in that folder.  A file in that folder called switchlist.html would hold the template for the switchlist, and a Cascading Style Sheets (CSS) file called "switchlist.css could be placed in the same directory to hold formatting details for the switchlist.  (Look around on the internet for details about CSS files.)   For security, SwitchList only allows files in the template directory to be read from your machine, though a template could load images and other files out on the Internet.
-
-== Example Switchlist Template: Thomas  ==
-
-The Thomas switchlist template uses large text written in the Comic Sans handwritten font and a cartoon picture of a train to display a switchlist more suitable for the four-year-old model railroaders on your layout.  It loads the pictures from the Internet, and positions the pictures using standard HTML formatting.
-
-Here is an example of the Thomas switchlist style in action: [http://homepage.mac.com/rbowdidge/railroad/Thomas.html]
-
-Here is the HTML template that creates it: [http://code.google.com/p/switchlist/source/browse/trunk/template_examples/Thomas/switchlist.html]
-
-The Thomas template loops over all cars with some lines like this:
-{{{
-<ol>
-{% for car in train.allFreightCarsInVisitOrder %}
-  <p>
-  <li>Move the {{car.carTypeRel.carTypeDescription}}
-  <span class="reportingMarks">{{car.reportingMarks}}</span>
-  from   <b>{{car.currentLocation.name}}</b> to
-  …
-{% /for %}
-</ol>
-}}}
-The `<ol>` tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (`<li>`) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
 
 == Template Variables ==
 
