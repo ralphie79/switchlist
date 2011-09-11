@@ -1,0 +1,54 @@
+div.switchlist {
+  width: 320px;
+}
+
+div.switchlist-car {
+  width:100%;
+  height:  50px;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+
+.car-reporting {
+  float: left;
+  width:32%;
+  font: 22px sans-serif;
+}
+
+.car-rows {
+  float: right;
+  width:68%;
+}
+
+.car-upperRow {
+  text-align: center;
+}
+
+.car-lowerRow {
+  text-align: center;
+}
+
+/* Industry page style to space out reporting marks and car type */
+.indStation td {
+  width: 30%;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+.indIndustry td {
+  width: 30%;
+  font-weight: bold;
+}
+.indMarks td {
+  width: 30%;
+}
+.indType td {
+  width: 10%;
+}
+.indStationStart td {
+  height: 40px;
+}
+.indIndustryStart td {
+}
+
+
+
