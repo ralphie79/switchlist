@@ -7,8 +7,9 @@ SwitchList now allows you to create your own custom, fancy switchlists so you ca
 == Templates ==
 
 SwitchList borrows a template language from the MGTemplateEngine open source project.  (It's similar to other template tools used for creating web pages, such as Django templates.)  Placeholders are strings wrapped in a pair of curly brackets.
-
+{{{
 {{freightCar.reportingMarks}} 
+}}}
 
 will cause the reporting marks of the current freight car to appear in the switchlist where this appears.
 
