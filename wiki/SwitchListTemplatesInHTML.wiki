@@ -6,16 +6,18 @@ SwitchList now allows you to create your own custom, fancy switchlists so you ca
 
 == Templates ==
 
-SwitchList borrows a template language from the MGTemplateEngine open source project.  (It's similar to other template tools used for creating web pages, such as Django templates.)  Placeholders are strings wrapped in a pair of curly brackets.
+SwitchList's template language is borrowed from MGTemplateEngine open source project.  (It's similar to other template tools used for creating web pages, such as Django templates.)  Placeholders in your template are strings wrapped in a pair of curly brackets.  Writing the following in your switchlist template
 {{{
 {{freightCar.reportingMarks}} 
 }}}
 
-will cause the reporting marks of the current freight car to appear in the switchlist where this appears.
+will cause the reporting marks of the current freight car to appear in the resulting switchlist where this appears.
 {{{
 Please move {{freightCar.reportingMarks}} from {{freightCar.currentLocation.name}} to {{freightCar.nextStop.name}}.
 }}}
-will cause the text "Please move SP 27310 from Ainsley Cannery to San Jose Yard" to appear when freightCar refers to an SP boxcar.  Each placeholder can access parts of an object.  freightCar is a freight car object, and it has various values attached to it - reporting marks, current location, next location, and car type.
+will cause the text "Please move SP 27310 from Ainsley Cannery to San Jose Yard" to appear when freightCar refers to an SP boxcar.
+
+Each placeholder can access parts of an object.  freightCar is a freight car object, and it has various values attached to it - reporting marks, current location, next location, and car type.
 
 Templates can also loop using {% %} tags to group commands in the template language.  Templates can loop over several objects ((% for %}).  The following template would produce a numbered list (the ol tag does an "ordered list") of instructions on where to move each car in the train:
 {{{
@@ -103,8 +105,8 @@ Some of these variables are plain string or number values (such as firstStation 
 || cargo || Current cargo being carried or assigned to freight car. ||
 || isLoaded || True if car is carrying cargo.  If false, car may not have a cargo assigned, or may be travelling to the location where the cargo is picked up. ||
 || carType || Abbreviation for the freight car's type of car (T for tank car, XM for short boxcar, etc.) ||
-|| FreightCar.currentLocation || industry or yard where car is currently located. (Industry object.) ||
-|| FreightCar.nextStop || Destination this session.  (Industry object.) ||
+|| currentLocation || industry or yard where car is currently located. (Industry object.) ||
+|| nextStop || Destination this session.  (Industry object.) ||
 || *Cargo* || ||
 || name || short description of cargo. ||
 || description ||  long description of cargo, including what kind of car and how many cars per week.  ||
