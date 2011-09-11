@@ -1,0 +1,141 @@
+#summary Create your own SwitchList form styles in HTML.
+
+= Creating New SwitchList Styles Using HTML Templates =
+
+SwitchList now allows you to create your own custom, fancy switchlists so you can match handwritten or computer generated switch lists from your favorite railroad.  You describe your switchlist using an HTML "template" - a web page with placeholders at the location of details to fill in later - and the SwitchList program will use your template to present your switchlist on the web interface and normal SwitchList interface.
+
+== Templates ==
+
+SwitchList borrows a template language from the MGTemplateEngine open source project.  (It's similar to other template tools used for creating web pages, such as Django templates.)  Placeholders are strings wrapped in a pair of curly brackets.
+
+{{freightCar.reportingMarks}} 
+
+will cause the reporting marks of the current freight car to appear in the switchlist where this appears.
+
+Please move {{freightCar.reportingMarks}} from {{freightCar.currentLocation.name}} to {{freightCar.nextStop.name}}.
+
+will cause the text "Please move SP 27310 from Ainsley Cannery to San Jose Yard" to appear when freightCar refers to an SP boxcar.  Each placeholder can access parts of an object.  freightCar is a freight car object, and it has various values attached to it - reporting marks, current location, next location, and car type.
+
+Templates can also loop using {% %} tags to group commands in the template language.  Templates can loop over several objects ((% for %}).  The following template would produce a numbered list (the ol tag does an "ordered list") of instructions on where to move each car in the train:
+
+<ul>
+{% for myFreightCar in train.allFreightCarsInVisitOrder %}
+    <li> Please move {{myFreightCar.reportingMarks}} from {{myFreightCar.currentLocation.name}} to {{myFreightCar.nextStop.name}}.
+{% /for %}
+</ul>
+
+Templates can also use conditions.  This snippet either prints "LOADED" if the freight car has a cargo and the cargo is currently loaded in the car, and "EMPTY" otherwise:
+
+(% if freightCar.isLoaded %} LOADED {% else %} EMPTY {% /if} 
+
+See the full <A HREF="http://mattgemmell.com/2008/05/20/mgtemplateengine-templates-with-cocoa">documentation for MGTemplateEngine</a> to learn more about what you can put in templates, or look at some of the example switchless.
+
+== Template Filters: ==
+
+MGTemplateEngine lets you specify filters which change the form of a string value.  Filters are added to a value by appending "| filterName".  For example, 
+
+{{layout.layoutName | uppercase}}
+
+would display the layout name in all capital letters.  MGTemplateEngine also defines a dateformat field that allows you to use a  <A HREF="http://unicode.org/reports/tr35/tr35-4.html#Date_Format_Patterns">standard format</a> to let you customize how you display the date.  For example, {{ layout.currentDate | date_format: MM/dd/YY }} displays dates in a form like "3/31/73", while {{ layout.currentDate | date_format: yyyy-MMM-dd}} displays dates in a form like "2007-Mar-12".
+
+SwitchList also defines its own handy filters.  The jitter filter adds some random spaces at the beginning, middle, or end of a string so that identical strings arranged vertically won't perfectly line up.  This is very helpful for making switchlists with handwritten fonts look handwritten:
+
+{{freightCar.reportingMarks | jitter}}  See the Handwritten switchlist for an example of jitter's use.
+
+== Creating your own SwitchList: ==
+
+To create your own special switchlist, create a folder in ~/Library/Application Support/SwitchList with the name of your switch list style, and place a switchlist.html and, if you want, switchlist.css file in there to get started.  For example, if I wanted a new switchlist called "WP", I would make sure the SwitchList folder existed in Library/Application Support, then create a new directory called WP in that folder.  A file in that folder called switchlist.html would hold the template for the switchlist, and a Cascading Style Sheets (CSS) file called "switchlist.css could be placed in the same directory to hold formatting details for the switchlist.  (Look around on the internet for details about CSS files.)   For security, SwitchList only allows files in the template directory to be read from your machine, though a template could load images and other files out on the Internet.
+
+== Example Switchlist Template ==
+
+The Thomas switchlist template uses large text written in the Comic Sans handwritten font and a cartoon picture of a train to display a switchlist more suitable for the four-year-old model railroaders on your layout.  It loads the pictures from the Internet, and positions the pictures using standard HTML formatting.  It loops over all cars with some lines like this:
+
+<ol>
+{% for car in train.allFreightCarsInVisitOrder %}
+  <p>
+  <li>Move the {{car.carTypeRel.carTypeDescription}}
+  <span class="reportingMarks">{{car.reportingMarks}}</span>
+  from   <b>{{car.currentLocation.name}}</b> to
+  …
+{% /for %}
+</ol>
+
+The <ol> tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (<li>) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
+
+== Template Variables ==
+
+The key to defining templates is knowing what values you can print in a switchlist template.  Each switch list gets a set of variables that can be accessed via templates.  The templates can actually access lots of other internals about your layout, but these are the ones that are the most useful and guaranteed not to change.
+
+== Variables Accessible to Switch List Template == 
+train: current train
+firstStation: string version of station where train originates.
+freightCars: list of freight cars being carried in visiting order (FreightCar objects)
+layout: current layout (Layout object).
+randomValue: integer value between 0 and 9, used for putting fingerprints, dogear or other bits of realism on switchless.
+
+Some of these variables are plain values (such as firstStation or randomValue), while others are objects containing their own values.
+
+Layout:
+Layout.currentDate
+  Usually formatted with a template filter to draw the date in a sane manner.  
+
+Layout.layoutName
+  The layout description as entered into the Layout tab of SwitchList.
+
+Layout.allStationsSortedOrder
+  List of all stations / places on the layout, sorted alphabetically.
+
+Layout.allIndustries
+  List of all industries.  Unsorted.
+
+Train:
+Train.name   string name for train.
+
+Train.freightCars
+  list of freight cars in the train in no order.
+Train.freightCarsInVisitOrder:
+  list of freight cars in the train, sorted by the order that towns will be visited.
+
+FreightCar:
+FreightCar.reportingMarks
+  String containing owning railroad and car number ("SP 27310")
+
+FreightCar.initials:
+  String containing railroad initials only. (Car "SP 27310" would return "SP")
+
+FreightCar.number:
+  String containing car number only.  (Car "SP 27310" would return "27310")
+
+Cargo.name:
+  short description of cargo.
+Cargo.description:
+  long description of cargo, including what kind of car and how many cars per week.
+
+
+FreightCar.isLoaded:
+  YES if loaded, NO if empty.
+
+FreightCar.carType
+  
+FreightCar.currentLocation
+  industry or yard where car is currently located. (Industry object.)
+
+FreightCar.nextStop:
+  destination this session.  (Industry object.)
+
+Industry:
+Industry.location
+  containing town
+
+Industry.name
+
+Station / Place
+Place.name
+
+Place.allIndustriesSortedOrder
+
+Cargo:
+name: car
+
+
+  
