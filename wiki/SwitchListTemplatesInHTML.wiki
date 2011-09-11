@@ -45,7 +45,7 @@ Templates can also use conditions.  This snippet either prints "LOADED" if the f
 {{{
 {% if freightCar.isLoaded %} LOADED {% else %} EMPTY {% /if %} 
 }}}
-See the full <A HREF="http://mattgemmell.com/2008/05/20/mgtemplateengine-templates-with-cocoa">documentation for MGTemplateEngine</a> to learn more about what you can put in templates, or look at some of the example switchlists.
+See the full [http://mattgemmell.com/2008/05/20/mgtemplateengine-templates-with-cocoa documentation for MGTemplateEngine] to learn more about what you can put in templates, or look at some of the example switchlists.
 
 Now, let's return to the Thomas example now that we've learned how templates work.  The Thomas template loops over all cars with some lines like this:
 {{{
