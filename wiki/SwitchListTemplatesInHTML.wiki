@@ -121,8 +121,7 @@ Some of these variables are plain string or number values (such as firstStation 
 || allIndustries || List of all industries.  Unsorted. ||
 || stationsWithWork || List of all the stations where the train has cars
 to pick up or drop off.  Each station is just a collection of industries with
-cars to pick up and drop off.  This value is used for drawing the 
-[ http://code.google.com/p/switchlist/source/browse/trunk/src/builtin-templates/PICL%20Report/switchlist.html PICL Report's] web version. ||
+cars to pick up and drop off.  Used for drawing the PICL report. ||
 || *Train* || ||
 || name   ||string name for train. ||
 || freightCars ||   list of freight cars in the train in no order. ||
