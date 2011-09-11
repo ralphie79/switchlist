@@ -88,30 +88,30 @@ The following variables are accessible from templates:
 Some of these variables are plain string or number values (such as firstStation or randomValue), while others are objects containing their own values.  Here is a list of the kinds of objects visible in a template, and the values attached to each.
 
 || *Layout* || ||
-|| Layout.currentDate ||  Usually formatted with a template filter to draw the date in a sane manner.  ||
-|| Layout.layoutName ||  The layout description as entered into the Layout tab of SwitchList. ||
-|| Layout.allStationsSortedOrder ||   List of all stations / places on the layout, sorted alphabetically. ||
-|| Layout.allIndustries || List of all industries.  Unsorted. ||
+|| currentDate ||  Usually formatted with a template filter to draw the date in a sane manner.  ||
+|| layoutName ||  The layout description as entered into the Layout tab of SwitchList. ||
+|| allStationsSortedOrder ||   List of all stations / places on the layout, sorted alphabetically. ||
+|| allIndustries || List of all industries.  Unsorted. ||
 || *Train* || ||
-|| Train.name   ||string name for train. ||
-|| Train.freightCars ||   list of freight cars in the train in no order. ||
-|| Train.freightCarsInVisitOrder: || list of freight cars in the train, sorted by the order that towns will be visited. ||
-|| *FreightCar* || ||
-|| FreightCar.reportingMarks || String containing owning railroad and car number ("SP 27310") ||
-|| FreightCar.initials || String containing railroad initials only. (Car "SP 27310" would return "SP") ||
-|| FreightCar.number || String containing car number only.  (Car "SP 27310" would return "27310") ||
-|| FreightCar.cargo || Current cargo being carried or assigned to freight car. ||
-|| FreightCar.isLoaded || True if car is carrying cargo.  If false, car may not have a cargo assigned, or may be travelling to the location where the cargo is picked up. ||
-|| FreightCar.carType || Abbreviation for the freight car's type of car (T for tank car, XM for short boxcar, etc.) ||
+|| name   ||string name for train. ||
+|| freightCars ||   list of freight cars in the train in no order. ||
+|| freightCarsInVisitOrder: || list of freight cars in the train, sorted by the order that towns will be visited. ||
+|| *Freight Car* || ||
+|| reportingMarks || String containing owning railroad and car number ("SP 27310") ||
+|| initials || String containing railroad initials only. (Car "SP 27310" would return "SP") ||
+|| number || String containing car number only.  (Car "SP 27310" would return "27310") ||
+|| cargo || Current cargo being carried or assigned to freight car. ||
+|| isLoaded || True if car is carrying cargo.  If false, car may not have a cargo assigned, or may be travelling to the location where the cargo is picked up. ||
+|| carType || Abbreviation for the freight car's type of car (T for tank car, XM for short boxcar, etc.) ||
 || FreightCar.currentLocation || industry or yard where car is currently located. (Industry object.) ||
 || FreightCar.nextStop || Destination this session.  (Industry object.) ||
 || *Cargo* || ||
-||Cargo.name || short description of cargo. ||
-|| Cargo.description ||  long description of cargo, including what kind of car and how many cars per week.  ||
+|| name || short description of cargo. ||
+|| description ||  long description of cargo, including what kind of car and how many cars per week.  ||
 || *Industry* || ||
-|| Industry.location || Town where industry is located. ||
-|| Industry.name || Name of industry. ||
+|| location || Town where industry is located. ||
+|| name || Name of industry. ||
 || *Station* (Also called place or town) || ||
-|| Station.name || Name of station. ||
-|| Station.allIndustriesSortedOrder ||
+|| name || Name of station. ||
+|| allIndustriesSortedOrder ||
   
