@@ -107,7 +107,7 @@ Some of these variables are plain string or number values (such as firstStation 
 || FreightCar.nextStop || Destination this session.  (Industry object.) ||
 || *Cargo* || ||
 ||Cargo.name || short description of cargo. ||
-|| Cargo.description ||  long description of cargo, including what kind of car and how many cars per week. 
+|| Cargo.description ||  long description of cargo, including what kind of car and how many cars per week.  ||
 || *Industry* || ||
 || Industry.location || Town where industry is located. ||
 || Industry.name || Name of industry. ||
