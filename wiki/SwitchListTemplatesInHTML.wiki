@@ -71,7 +71,7 @@ The Thomas template loops over all cars with some lines like this:
 {% /for %}
 </ol>
 }}}
-The <pre><ol></pre> tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (<pre><li></pre>) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
+The &gt;ol&lt; tag creates a numbered list of cars to move.  The train.allFreightCarsInVisitOrder provides a list of cars sorted by the order the train visits each car's town, and each freight car is assigned to "car" on a pass through the loop.  The text in the for loop is drawn once per car; notice how the numbered list item (&gt;li&lt;) just appears in the text, and how the reporting marks, long car description, and current location are represented with template expressions.
 
 == Template Variables ==
 
