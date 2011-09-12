@@ -25,11 +25,11 @@ Here's a list of some of the future features for SwitchList.  Add your own ideas
  * Create better forms and documents for running an active yard.
  * Create a Coverflow-like UI for selecting the right switchlist.
  * Control blocking order more explicitly.
- * Use CSS to make the web switchlists resemble the printed forms.
+[DONE] ~~Use CSS to make the web switchlists resemble the printed forms.~~
 
 = Overall Experience =
  * Print Everything.  If you try to print from the main menu, a (currently disabled) feature would print switchlists for all trains on your layout at once.  Get this working again.  Use a dialog with checkboxes to allow the user to select which subset of switchlists and yard reports to print.
-* Improve the first pages of the web interface - it's currently bare-bones text.
+[DONE] ~~Improve the first pages of the web interface - it's currently bare-bones text.~~
 
 = iPad =
 * Create an iPad version of SwitchList that can print switchlists through AirPrint, or can just show switchlists on the iPad for individual model railroaders with a small layout.
