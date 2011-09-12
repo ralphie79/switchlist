@@ -111,6 +111,8 @@ The second way you can change how switchlists appear is to define a different HT
 
 The separate iPhone HTML file can draw the switchlist in any way that's handy for small devices.  That HTML file can also load a separate CSS file if you want to hide some details of layout and style in the other file.
 
+*Note:* Currently, the SwitchList web server will only allow five files to be requested from the custom switchlist style folder: switchlist.html, switchlist-iphone.html, switchlist.css, switchlist-ipad.css, and switchlist-iphone.css.  This restriction ensures that the SwitchList web server can't be used as a way of sneaking a peek at files on your computer.  This restriction will eventually be relaxed so only files in the custom switchlist's folder would be able to be read.
+
 == Other Examples ==
 
 Although all the standard switchlist styles are handled
