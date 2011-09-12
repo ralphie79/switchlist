@@ -1,0 +1,106 @@
+.train-name {
+  color: ddd;
+  display:float; 
+  font-family: Oswald;
+  font-size: 10px;
+}
+.switch-list-title {
+	font-family: Oswald;
+	font-size: 36px;
+	text-align:  center;
+}
+
+.switch-list-layout-title {
+	font-family: Oswald;
+	font-size: 14pt;
+	text-align:  center;
+}
+
+.switch-list-instructions {
+  font-family: Oswald;
+  text-align: center;
+}
+
+.switch-list-instructions-filled-in {
+  color: DarkBlue;
+  font-family: "Rock Salt";
+  font-size: 10px;
+}
+
+.switch-list-header TH {
+  background-color:bbb;
+  border: 2px solid aaa;
+  color: black;
+  font-family: Oswald;
+}
+.switch-list TD {
+  color: DarkBlue;
+  font-family: "Rock Salt";
+  font-size: 10px;
+}
+ 
+table.switch-list {
+  border: 1;
+  border-collapse: collapse; 
+}
+
+.switch-list td { 
+  border: 2px solid aaa;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Industry page style to space out reporting marks and car type */
+.industry-title {
+	font-family: Oswald;
+	font-size: 14pt;
+	text-align:  center;
+	margin-bottom: 10px;
+}
+.industry-station  {
+	width:  100%;
+	display: inline-block;
+	margin-bottom: 10px;
+	background-color:  #f8f8f8;
+}
+
+.industry-station-name {
+	float: left;
+	width: 20%;
+	color: DarkBlue;
+  font-family: "Rock Salt";
+  font-size: 16px;
+}
+
+.industry-station-industries {
+	float: right;
+	width: 80%;
+}
+
+.industry-station-industry {
+	width:  100%;
+	display:  inline-block;
+	background-color: #eee;
+	margin-top:  5px;
+	margin-bottom:  5px
+}
+
+.industry-industry-name {
+	float:  left;
+	width:  30%;
+	color: DarkBlue;
+  font-family: "Rock Salt";
+  font-size: 14px;
+}
+
+.industry-industry-cars {
+	width:  70%;
+	display:  inline-block;
+	margin-bottom: 10px;
+  font-family: "Rock Salt";
+  color: DarkBlue;
+  font-size: 12px;
+}
+
+
+
