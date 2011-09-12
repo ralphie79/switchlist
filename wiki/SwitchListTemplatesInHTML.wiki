@@ -91,6 +91,26 @@ There are limitations to what can be done in HTML switchlists; generally, typogr
 
 On the other hand, I was a bit surprised what could be done just in HTML.  The HTML versions of the built-in templates show how handwriting fonts can be downloaded from Google Web Fonts, and jittery text placed at slightly different locations be done with some random scattering of spaces.
 
+== Making Switchlists Easy to Read on iPhone and iPad ==
+
+Showing switchlists on smaller screens - for example an iPhone or iPad - can be tough, but SwitchList lets you change how a custom switchlist is displayed on these different devices.  There are two ways you can change the appearance of your switchlist: you can have different CSS files for your different devices, or you can define a separate iPhone-only version of the switchlist template.
+
+Web pages already have the idea of drawing content differently on different devices.  Typically, this is done using CSS so that portions of the document have different sizes, different font choices, or have portions disappear completely.  By placing all the position and size style attributes in the CSS, loading a different file can make a page more acceptable for an iPad or iPhone.
+
+Here's an example used by SwitchList (and also used by real web pages):
+{{{
+<link href='switchlist-iphone.css' rel='stylesheet' type='text/css' media='only screen and (max-device-width: 480px)'/>
+<link href='switchlist-ipad.css' rel='stylesheet' type='text/css' media='only screen and (min-device-width: 481px) and (max-device-width: 1024px)'/>
+<link href='switchlist.css' rel='stylesheet' type='text/css' media='all and (min-device-width: 1025px)'>
+}}}
+These three lines look like normal references to a CSS file, but each has a 'media' attribute that indicates which kinds of devices should load which link.  Different css files are loaded for each size of screen, and a different css file could be loaded when printing (as opposed to viewing) a page.
+
+Your custom switchlist style can use the same trick, adding these three lines at the top of the HTML file, then defining three separate css files documenting sizes and positions of elements when shown on the corresponding device.
+
+The second way you can change how switchlists appear is to define a different HTML file.  SwitchList already does this; if you look at the Handwriting switchlist style from the web interface, you'll see a very different screen showing only the reporting marks, from, and to locations, all in large letters.  This couldn't easily be done in css alone; instead, when an iPhone connects to SwitchList's web server, SwitchList will check if a file called switchlist-iphone.html exists in the current style's folder, and if so uses that file instead of the normal switchlist.html.
+
+The separate iPhone HTML file can draw the switchlist in any way that's handy for small devices.  That HTML file can also load a separate CSS file if you want to hide some details of layout and style in the other file.
+
 == Other Examples ==
 
 Although all the standard switchlist styles are handled
