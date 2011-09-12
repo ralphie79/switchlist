@@ -4,6 +4,9 @@
 
 SwitchList now allows you to create your own custom, fancy switchlists so you can match handwritten or computer generated switch lists from your favorite railroad.  You describe your switchlist using an HTML "template" - a web page with placeholders at the location of details to fill in later - and the SwitchList program will use your template to present your switchlist on the web interface and normal SwitchList interface.
 
+To get started, download the latest version of SwitchList.  The distribution now includes a folder called 
+Custom Switchlist Examples" that describes how to install a custom switchlist style, and provides the Thomas example shown here.
+
 == Example Switchlist Template: Thomas  ==
 
 Let's start off with an example of a switchlist style you could create yourself.
