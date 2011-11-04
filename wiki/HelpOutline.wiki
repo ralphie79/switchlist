@@ -78,6 +78,12 @@ Detail: Viewing SwitchLists on iPad (pg54.html)
 
 Detail: spotting cars at particular doors (pg55.html)
 
+Detail: Layout Balance and Unavailable Cars (pg56.html)
+
+Detail: Difficulties in Car Movement (pg57.html)
+
+Detail: Moving Cars Only If Space At Industry (pg58.html)
+
 ==SwitchList Forms==
 
 SwitchList forms: (pg4 contains the full list)
