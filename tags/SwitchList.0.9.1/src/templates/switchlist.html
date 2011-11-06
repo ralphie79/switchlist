@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<!-- Sans-serif font for titles. -->
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<!-- Handwritten block letters font -->
+<link href='http://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet' type='text/css'>
+
+<!-- Use iPad specific settings to increase font sizes. -->
+<link href='builtin-switchlist.css' rel='stylesheet' type='text/css'>
+<link href='builtin-switchlist-ipad.css' rel='stylesheet' type='text/css' media='only screen and (min-device-width: 481px) and (max-device-width: 1024px)'/>
+
+<TITLE>Switch List for {{ trainName }}</TITLE>
+</HEAD>
+<BODY>
+<div class="switch-list">
+<div class="train-name">{{trainName}}</div>
+<div class="report-layout-title">{{ layout.layoutName }}</div>
+<div class="report-title">SWITCH LIST</div>
+<div class="switch-list-instructions">
+<span class="switch-list-instructions-filled-in">
+<u>{{ trainName }}</u>
+</span>
+AT
+<span class="switch-list-instructions-filled-in">
+<u>{{ firstStation }}</u>
+</span>
+STATION,
+<span class="switch-list-instructions-filled-in">
+<u>{{ layout.currentDate | date_format: "MMM dd"}}</u></span>
+19<span class="switch-list-instructions-filled-in"><u>{{ layout.currentDate | date_format: "YY"}}</u>
+</span>
+</div>
+<p>
+<center>
+<TABLE class="switch-list">
+  <TR>
+    <TH>Done</TH>
+    <TH>Car No.</TH>
+    <TH>Car Type</TH>
+    <TH>From</TH>
+    <TH>To</TH>
+  </TR>
+  {% for car in train.allFreightCarsInVisitOrder %}
+  <TR class="switch-list-line">
+    <TD><INPUT TYPE=CHECKBOX NAME=""></TD>
+	<TD>{{car.reportingMarks | jitter}}</TD>
+	<TD>{{car.carType | jitter}}</TD>
+	<TD>{{car.currentLocation.location.name | 
+	 }} / {{car.currentLocation.name | jitter}}</TD>
+	<TD>{{car.nextStop.location.name | jitter }} / {{car.nextStop.name | jitter}}</td>
+  </tr>
+  {% /for %}
+</TABLE>
+</center>
+<p align="right">
+<INPUT TYPE=BUTTON value="Go Back" onclick="location.href='?layout={{layout.layoutName}}'">
+<INPUT TYPE=BUTTON value="Train Finished">
+</p>
+</div>
+</HTML>
+	
