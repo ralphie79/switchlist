@@ -13,7 +13,7 @@ Let's start off with an example of a switchlist style you could create yourself.
 
 The Thomas switchlist template uses large text written in the Comic Sans handwritten font and a cartoon picture of a train to display a switchlist more suitable for the four-year-old model railroaders on your layout.  It loads the pictures from the Internet, and positions the pictures using standard HTML formatting.
 
-Here is an example of the Thomas switchlist style in action: [http://homepage.mac.com/rbowdidge/railroad/Thomas.html]
+Here is an example of the Thomas switchlist style in action: [http://www.vasonabranch.com/railroad/Thomas.html]
 
 Here is the HTML template that creates it: [http://code.google.com/p/switchlist/source/browse/trunk/template_examples/Thomas/switchlist.html]
 
