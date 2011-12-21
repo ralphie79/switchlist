@@ -7,6 +7,16 @@ Master list of public releases of SwitchList.
 
 = Details =
 
+Version 0.9.3 (12/20/2011). Documentation fixes, and allow hovering over cargo name in freight car table to show full description.
+
+Version 0.9.2 (12/4/2011). Fixes crash in some switchlist styles if a car’s reporting marks contain no space between initials and number.
+
+Version 0.9.1 (11/5/2011). Fix badly formatted reports for some alternate switchlist templates. Improvements to PICL reports.
+
+Version 0.9.0 (11/4/2011). Limits on siding capacity. Custom reports in HTML. Improvements to Web Server.
+
+Version 0.8.1 (9/11/2011).  Fix problems with iPhone display and Line Printer switchlist style.
+
 Version 0.8.0 (9/10/2011).  User-defined switchlist templates now supported, with documentation on how to create them.
 
 Version 0.7.4 (8/23/2011).  Simplifies messing with the web server display by using HTML templates and a templating engine.
