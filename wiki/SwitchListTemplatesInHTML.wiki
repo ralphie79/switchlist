@@ -85,6 +85,8 @@ To create your own special switchlist, create a folder in ~/Library/Application 
 
 For example, if I wanted a new switchlist called "WP", I would make sure the SwitchList folder existed in Library/Application Support, then create a new directory called WP in that folder.  A file in that folder called switchlist.html would hold the template for the switchlist, and a Cascading Style Sheets (CSS) file called "switchlist.css could be placed in the same directory to hold formatting details for the switchlist.  (Look around on the internet for details about CSS files.)   For security, SwitchList only allows files in the template directory to be read from your machine, though a template could load images and other files out on the Internet.
 
+As a starting point, borrow an existing stock switchlist style, either by copying the .html file from inside SwitchList itself, or copy the files straight out of the source code here at code.google.com.  
+
 == Creating Your Own Reports ==
 
 SwitchList also allows you to create the standard reports in a style to match your switch lists.  Custom reports can be used for the Car Report, Industry Report, Reserved Car Report, and Yard Report.
@@ -92,6 +94,8 @@ SwitchList also allows you to create the standard reports in a style to match yo
   * Industry Report: industry-report.html
   * Reserved Car Report: reserved-car-report.html
   * Yard Report: yard-report.html
+
+The custom reports go in the same folder as the corresponding custom switchlist.
 
 These reports all follow the same form as a switchlist.  Most will access the layout variable to extract details on any part of your model railroad.  Check out the custom reports in the Line Printer template or Southern Pacific Narrow report for more details.
 
