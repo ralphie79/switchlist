@@ -116,7 +116,9 @@ How to represent interchanges? (pg106.html)
 
 Customization (pg200.html)
 
-Changing default fonts (pg201.html)
+Creating Custom SwitchLists (pg201.html)
+
+Redefining Home and Layout Pages in Web Interface (pg202.html)
 
 ==Style guide for HTML:==
 
