@@ -8,8 +8,8 @@ Here's a list of some of the future features for SwitchList.  Add your own ideas
 = Car Movement Ideas =
 
   * Variable unloading times.  Let some cargo require two days to unload, and others one.
-  * Add support for setting minimum and maximum train lengths.
-  * Provide siding length for each industry, and make sure there's space for cars being dropped off.
+  * ~~Add support for setting minimum and maximum train lengths.~~ Done.
+  * ~~Provide siding length for each industry, and make sure there's space for cars being dropped off.~~ In 0.9.4.
   * Make sure all switchlists and documents are presenting door assignments, and sorting lists by door.
   * Support advanced features - cleanout and scale, and icing tracks.  (Requires more explicit yard instructions?)
 
