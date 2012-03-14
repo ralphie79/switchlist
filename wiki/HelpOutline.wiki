@@ -35,9 +35,7 @@ high level descriptions of what Switchlist Does.
 
 In Depth Topics: (pg10.html) Needs intro.
 
-Best layouts for SwitchList (pg11.html) Still to be written.
-
-How SwitchList decides which cars should move (pg12.html)
+Best layouts for SwitchList (pg11.html)
 
 How to design cargos (pg13.html) 
 
