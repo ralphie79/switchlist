@@ -166,7 +166,8 @@ Some of these variables are plain string or number values (such as firstStation 
 || *Train* || ||
 || name   ||string name for train. ||
 || freightCars ||   list of freight cars in the train in no order. ||
-|| freightCarsInVisitOrder: || list of freight cars in the train, sorted by the order that towns will be visited. ||
+|| freightCarsInVisitOrder: || list of freight cars in the train, sorted by the order that towns will be visited. || stationsInOrder || list of the stations visited by this train in the order visited.  Contains duplicates if the same town is visited twice. ||
+||
 || *Freight Car* || ||
 || reportingMarks || String containing owning railroad and car number ("SP 27310") ||
 || initials || String containing railroad initials only. (Car "SP 27310" would return "SP") ||
