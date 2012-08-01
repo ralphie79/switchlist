@@ -1,0 +1,69 @@
+div.switchlist {
+  width: 320px;
+}
+
+div.switchlist-car {
+  width:100%;
+  height:  50px;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+
+.car-reporting {
+  float: left;
+  width:32%;
+  font: 22px sans-serif;
+}
+
+.car-rows {
+  float: right;
+  width:68%;
+}
+
+.car-upperRow {
+  text-align: center;
+}
+
+.car-lowerRow {
+  text-align: center;
+}
+
+/* No iPhone support for industry report. */
+
+/* Common formatting for all reports.  Use the same typography as the
+ * Handwritten switchlists - sans-serif fonts, handwritten tables, etc.
+ */
+
+/* Layout name, always visible at top of report. */
+.report-layout-title {
+  font-family: Oswald;
+  font-size: 40pt;
+  text-align:  center;
+  font-variant: small-caps;
+}
+
+/* Report name */
+.report-title {
+  font-family: Oswald;
+  font-size: 40px;
+  text-align:  center;
+  font-variant: small-caps;
+}
+
+/* Basic web UI controls. */
+h1 {
+  font-family: Oswald;
+  font-size: 40px;
+  text-align: center;
+  font-variant: small-caps;
+  border: 2px solid #999;
+  background: #bbb;
+
+}
+
+ul {
+  font-family: Oswald;
+  font-size: 40px;
+}
+
+
