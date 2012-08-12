@@ -7,6 +7,18 @@ Master list of public releases of SwitchList.
 
 = Details =
 
+Version 1.0.0 (8/11/2012). Better random choice of cars to accept new cargo.
+
+Version 0.9.7.3 (8/1/2012). Fixes crash on PowerPC machines during startup.
+
+Version 0.9.7 (7/31/2012) Improvements in HTML switchlist templates, better handwritten font by default, UI switch for towns, new logo.
+
+Version 0.9.6 (3/24/2012). Bug fixes, documentation improvements.
+
+Version 0.9.5 (3/20/2012). Respects maximum train length, allows station names with commas.
+
+Version 0.9.4 (3/5/2012). Fixes crash in layout with many yards, removes problem with switchlists getting clipped during printing, improved documentation, web interface home page now customizable.
+
 Version 0.9.3 (12/20/2011). Documentation fixes, and allow hovering over cargo name in freight car table to show full description.
 
 Version 0.9.2 (12/4/2011). Fixes crash in some switchlist styles if a car’s reporting marks contain no space between initials and number.
