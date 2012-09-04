@@ -1,6 +1,5 @@
-#summary One-sentence summary of this page.
+#summary How to define new industries and cargos for the Suggested Cargos assistant.
 #labels Phase-Implementation
-How to define new industries and cargos for the Suggested Cargos assistant.
 
 = Introduction =
 
