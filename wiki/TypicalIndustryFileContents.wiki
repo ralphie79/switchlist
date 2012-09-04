@@ -11,7 +11,7 @@ You can modify this file to add new potential industry classes and cargos.
 
 = Details =
 
-typicalIndustry.plist is a text file in Apple's "plist" format - a file using XML tags (values in angle brackets) to mark what each item is.)  The file is an array of potential industry classes (generalized descriptions of an industry.)  Each industry is stored as a dictionary of key/value pairs.  The values in the plist are:
+typicalIndustry.plist is a text file in Apple's [http://en.wikipedia.org/wiki/Property_list "plist"] format - a file using XML tags (values in angle brackets) to mark what each item is.)  The file is an array of potential industry classes (generalized descriptions of an industry.)  Each industry is stored as a dictionary of key/value pairs.  The values in the plist are:
 
 `IndustryClass:` string name describing the general class of industry.  Used in the pull-down menu for changing the type of industry.
 
