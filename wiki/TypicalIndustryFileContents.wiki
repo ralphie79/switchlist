@@ -7,6 +7,8 @@ SwitchList 1.1.1 includes a new "Suggested Cargos" feature where SwitchList can 
 
 You can modify this file to add new potential industry classes and cargos.
 
+[http://code.google.com/p/switchlist/source/browse/trunk/src/resources/typicalIndustry.plist Here] is the current version of the file.
+
 = Details =
 
 typicalIndustry.plist is a text file in Apple's "plist" format - a file using XML tags (values in angle brackets) to mark what each item is.)  The file is an array of potential industry classes (generalized descriptions of an industry.)  Each industry is stored as a dictionary of key/value pairs.  The values in the plist are:
