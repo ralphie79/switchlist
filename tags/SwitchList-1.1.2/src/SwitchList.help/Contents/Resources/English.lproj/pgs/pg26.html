@@ -1,0 +1,75 @@
+<html>
+<head>
+<TITLE>User Interface: Trains Tab</TITLE>
+<link href="../../shrd/switchlist.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<BODY>
+<div id="headerbox"><div id="iconbox">
+  <A HREF="../SwitchList.html">
+    <img id="iconimg" src="../../shrd/lantern-help.png" alt="SwitchList Icon" height="32" width="32" />
+  </a>
+</div>
+<H1>User Interface: Trains Tab</H1>
+</div>
+<div id="leftspace">
+<p>
+<A HREF="../../shrd/switchlist_trains.png"><img class="floatRight" src="../../shrd/switchlist_trains.png"></a>
+The Trains tab lets you name the trains that run on your layout.
+Only trains that handle freight cars need to be named.
+Once you have added a train, you can generate a switchlist for that train.
+<p>
+To add a new train, press the "Add" button and provide the named
+fields.  To remove an existing train, select it and press the "Remove"
+button. 
+<p>
+Each train is associated with three pieces of information:
+a name for the train, the kinds of freight cars it may carry, and
+the towns it will visit during its run.
+Any of these values can be changed at any time.
+<p>
+To switch the kind of freight cars taken by the train, press the "Change cars accepted..." button.  This raises a dialog box listing all the car types
+known to SwitchList, and lets you select any or all of the car types
+as carried by the train.  If no car types are selected,
+SwitchList assumes the train can carry any kind of car.
+<p>
+To switch the towns the train visits, press the "Change stops..." button.  This
+raises a dialog box letting you list the towns visited in order.
+Trains must start and end in a town with a yard, and can only visit
+towns in visible portions of the layout or in staging.
+If the train goes out and back, make sure to list the stations visited in each
+direction.
+<p>
+The "Maximum Length" field lets you set a limit for the size of trains to the specified
+number of feet.  If
+you've turned on SwitchList's option for limiting the cars at overflowing sidings, then
+SwitchList will estimate the length of the train at each stop and not allow cars to be added from
+the train if the train would be longer than this number.  This is very helpful if trains on
+your layout are constrained by short passing sidings or steep grades where limiting train size will help keep
+trains running.
+<p>
+If the maximum train length is set to 0 (or to an absurdly high amount), then that train will
+accept all cars that need to be moved.
+<p>
+The "Maximum Length" field only appears if the "Move Cars Only If Space At Industry"
+option is turned on in the Layouts tab.  Turning off this option will remove any limits on
+any train lengths.
+Read more on this feature in the section
+on <A HREF="pg58.html">how SwitchList limits cars going to overflowing industry spurs</a>.
+<p>
+<hr><p><h2>Related Topics:</h2>
+<p>
+<A HREF="pg58.html">Moving Cars Only If Space At Industry Or On Train</a>
+<p>
+<A HREF="pg104.html">Definition: Industry</a>
+<p>
+<A HREF="pg101.html">Definition: Town in Staging</a>
+<p>
+<A HREF="pg102.html">Definition: Offline Town</a>
+<p>
+<A HREF="pg105.html">Definition: Yard</a>
+<p>
+<a href="pg53.html">Choosing Car Types</a>
+<p>
+</div>
+</body>
+</html>
