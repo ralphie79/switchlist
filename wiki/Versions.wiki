@@ -74,6 +74,9 @@ Version 0.5.1, (10/31/2010). First official release. PowerPC/Intel binary.
 = File Formats =
 
 SwitchList-0.6.6 (r19): File format 2.
+
 SwitchList-??? (r174): File format 3.  Add car type.
+
 SwitchList-0.8.9 (r170: File format 4.  Add siding length.
+
 SwitchList-1.1.0 (r424): File format 5.  Adds cargo rates.
