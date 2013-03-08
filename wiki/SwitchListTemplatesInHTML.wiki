@@ -81,6 +81,14 @@ SwitchList also defines its own handy filters.  The jitter filter adds some rand
 }}}
 See the default switchlist for an example of jitter's use.
 
+For more sophisticated reports and switchlist styles, you can include JavaScript in your web page in the usual web fashion.  If you embed strings of station or car names, you might have problems if the names have special characters not allowed in JavaScript strings such as single or double quotes.  The js_escape_string filter will correctly escape the name values so they may be included within a JavaScript string.
+
+{{{
+var layoutName = "{{layout.layoutName | js_escape_string}}";
+}}}
+
+This new filter only exists in versions of SwitchList 1.21 and greater.
+
 == Creating your own SwitchList ==
 
 To create your own special switchlist, create a folder in ~/Library/Application Support/SwitchList with the name of your switch list style, and place a switchlist.html and, if you want, switchlist.css file in there to get started.
