@@ -1,0 +1,117 @@
+<!-- Template for the list of cars (sorted by reporting marks.
+     This HTML page notifies the server when the user changes the
+	 location of a car. -->
+<HTML>
+<HEAD>
+<TITLE>Location of Cars on Layout</TITLE>
+<!-- Sans-serif font for titles. -->
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<!-- Handwritten block letters font -->
+<link href='http://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet' type='text/css'>
+
+<!-- Use iPad specific settings to increase font sizes. -->
+<link href='layout.css' rel='stylesheet' type='text/css'>
+<link href='layout-ipad.css' rel='stylesheet' type='text/css' media='only screen and (min-device-width: 481px) and (max-device-width: 1024px)'/>
+<script type='text/javascript'>
+var layoutName='{{ layout.layoutName | js_escape_string}}';
+var carDictionary={ {{carLocations | js_escape_string}} };
+var industries = [{% for industry in allIndustries%} '{{industry.name | js_escape_string}}', {% /for %}];
+var yards = [{% for yard in allYards %} '{{yard.name | js_escape_string}}', {% /for %}];
+</script>
+<script type="text/javascript">
+function carLocationChanged(object, carName) {
+  var chosenOption = object.options[object.selectedIndex];
+  var params = "layout=";
+  // layoutName appended in separate script into HTML.
+  params += layoutName;
+  params +="&car=";
+  params += encodeURIComponent(carName);
+  params += "&location=";
+  params += chosenOption.text;
+  var http = new XMLHttpRequest();
+  http.open("GET","setCarLocation" + "?" + params, true);
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200 && http.responseText != "OK") {
+      alert(http.responseText);
+    }
+  }
+  http.send(null);
+}
+
+function setCarLocations(carDictionary) {
+  var carKey;
+  for (carKey in carDictionary) {
+    var carLoc = carDictionary[carKey];
+	var carIndustryId = carKey + "-" + carLoc;
+	var optionForCar = document.getElementById(carIndustryId);
+	if (optionForCar) {
+      optionForCar.selected = true;
+	} else {
+	  // Ignore.
+    }
+  }
+}
+
+// Adds an option tag to the select button, adding a new industry
+// or yard to the list of places the car may go.
+// The option's text should be the provided text -- the industry.  The
+// option's id should be the button's id (car) concatenated
+// with the industry, and the option's value should be the
+// industry.
+function makeOption(button, text) {
+  var newOpt = document.createElement('option');
+  newOpt.innerText = text;
+  newOpt.id = button.id + '-' + text;
+  newOpt.value = text;
+  button.options[button.options.length] = newOpt;
+}
+
+// Use the list of industries and yards to fill in the choices of where
+// cars may be placed.
+function initializePulldownButtons() {
+  var buttons = document.getElementsByClassName('industryButton');
+  var buttonCount = buttons.length;
+  for (var i = 0; i < buttonCount; i++) {
+	var selectButton = buttons[i];
+	var industryCount = industries.length;
+    for (var j = 0; j < industryCount; j++) {
+	  makeOption(selectButton, industries[j]);
+    }
+
+	var yardCount = yards.length;
+  	for (var j = 0; j < yardCount; j++) {
+	  makeOption(selectButton, yards[j]);
+	}
+	makeOption(selectButton, 'Workbench');
+  }
+}
+
+// Do any page setup here.
+function loadPage() {
+  initializePulldownButtons();
+  setCarLocations(carDictionary);
+}
+</script>
+</HEAD>
+<BODY onload="loadPage();">
+<div class="report-layout-title">{{layout.layoutName}}</div>
+<div class="report-title">CAR LOCATION REPORT</div>
+<TABLE class="report">
+  <tr>
+  <th>Reporting Marks</th>
+  <th>Car Type</th>
+  <th>Location</th>
+  </tr>
+  {% for car in freightCars %}
+  <tr>
+    <td>{{ car.reportingMarks }}</td>
+    <td>{{ car.carType }}</td>
+    <TD>
+      <select class="industryButton" 
+	          style="font-size: 100%;" id="{{car.reportingMarks}}" onchange="javascript:carLocationChanged(this, '{{car.reportingMarks}}');">
+       </select>
+    </td>
+  </tr>
+  {% /for %}
+</table>
+</BODY></HTML>
