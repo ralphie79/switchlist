@@ -98,7 +98,7 @@ SwitchList-1.2.9 (r609): File Format 7.  Days to unload.
 
 If you get an unknown layout file, you can guess at the version by checking some magic numbers in the file.  Open it in a text editor; the top section has some XML with the title "NSStoreModelVersionHashes" which lists the magic hashes expected for each kind of object in the program (FreightCar, Industry, etc).  Here's a few of the hashes for three classes:
 
-<verbatim>
+{{{
 Freight Car:
 Version 7: r609: vc47I3prTXdN+JishWjEF/xHAXyScG3vhiwjlnCH1iE=
 Version 5: r424: +qbD31B2psgfXVeVrl9nsCioBM1BN+7sQ+frmm8YJnU=
@@ -119,6 +119,6 @@ Version 5: r424: dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
 Version 4: r170: dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
 Version 3: r174:
 Version 2: r9:   dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
-</verbatim>
+}}}
 
 So, if you have an unknown file, and the FreightCar hash starts with "vc47", then it's probably a version 7 file from version 1.2.9.
