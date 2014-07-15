@@ -6,6 +6,17 @@ Master list of public releases of SwitchList.
 
 
 = Details =
+Version 1.2.9 (2/23/2014).  Allow variable days to unload cars, hints about how busy each siding is, annul button works.
+
+Version 1.2.0 (9/30/2012). "Suggest Cargos..." now shows existing cargos for each industry. New Chicago example. Minor bug fixes.
+
+Version 1.1.4 (9/26/2012). Return missing files for converting older layout file to new version, fix problems launching on Mac OS X 10.5
+
+Version 1.1.3 (9/22/2012). Add "Import Template..." menu item to simplify adding new custom switchlist styles.
+
+Version 1.1.2 (9/5/2012). Add "Suggest Cargo" feature that gives suggestions about new cargos to create for your industries.
+
+Version 1.1.1 (9/3/2012). SwitchList now suggests cargos, cargo rates can be specified in days or months, support multiple trains in same path.
 
 Version 1.0.0 (8/11/2012). Better random choice of cars to accept new cargo.
 
@@ -80,3 +91,34 @@ SwitchList-??? (r174): File format 3.  Add car type.
 SwitchList-0.8.9 (r170: File format 4.  Add siding length.
 
 SwitchList-1.1.0 (r424): File format 5.  Adds cargo rates.
+
+SwitchList-1.2.9 (r609): File Format 7.  Days to unload.
+
+= Identifying A File Version =
+
+If you get an unknown layout file, you can guess at the version by checking some magic numbers in the file.  Open it in a text editor; the top section has some XML with the title "NSStoreModelVersionHashes" which lists the magic hashes expected for each kind of object in the program (FreightCar, Industry, etc).  Here's a few of the hashes for three classes:
+
+<verbatim>
+Freight Car:
+Version 7: r609: vc47I3prTXdN+JishWjEF/xHAXyScG3vhiwjlnCH1iE=
+Version 5: r424: +qbD31B2psgfXVeVrl9nsCioBM1BN+7sQ+frmm8YJnU=
+Version 4: r170: MUhOO9br8bKwJQlhCHa55b7PqTk0lkESEXxY47q44nA=
+Version 3: r174: MUhOO9br8bKwJQlhCHa55b7PqTk0lkESEXxY47q44nA=
+Version 2: r9:   MUhOO9br8bKwJQlhCHa55b7PqTk0lkESEXxY47q44nA=
+
+Industry:
+Version 7: r609: mz5wbMeLvFUtzQFIMaUMKGDXPZ8WRH00d97GBGepFiU=
+Version 5: r424: mz5wbMeLvFUtzQFIMaUMKGDXPZ8WRH00d97GBGepFiU=
+Version 4: r170: mz5wbMeLvFUtzQFIMaUMKGDXPZ8WRH00d97GBGepFiU=
+Version 3: r174:
+Version 2: r9:   pPJRlCkz3ktRCi2LozJuj13iWJ4duNyZcKaZS55HukM=
+
+CarType:
+Version 7: r609: dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
+Version 5: r424: dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
+Version 4: r170: dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
+Version 3: r174:
+Version 2: r9:   dEmE//DowqbI9VHlNrNhfTjLYtCFzUdxU47V9zJ1OEc=
+</verbatim>
+
+So, if you have an unknown file, and the FreightCar hash starts with "vc47", then it's probably a version 7 file from version 1.2.9.
