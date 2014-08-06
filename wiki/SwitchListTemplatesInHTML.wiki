@@ -111,7 +111,7 @@ What this chunk of template says is that there's an optional setting for the nam
 The variable name in the double curly brackets must start with OPTIONAL_.
 In SwitchList, the rest of the name (with under bars switched to spaces) will be displayed as the setting.  The "default:" word is followed with the text that's used if the optional setting is not provided.
 
-Custom template settings can be used in the middle of the template and can include HTML.  A user might fill in an optional setting called "Railroad Address" with "123 N. First St.\<br\>San Jose CA 95101", where the "\<br\>" tag indicates a line break.
+Custom template settings can be used in the middle of the template and can include HTML.  A user might fill in an optional setting called "Railroad Address" with "123 N. First St.<br>San Jose CA 95101", where the "<br>" tag indicates a line break.
 
 == Creating Your Own Reports ==
 
@@ -172,7 +172,8 @@ The key to defining templates is knowing what values you can print in a switchli
 == Variables Accessible to Switch List Template == 
 The following variables are accessible from templates:
 || train || current train. (Train object) ||
-|| firstStation || string version of station where train originates. ||
+|| firstStation || Station where the train starts. ||
+|| lastStation || Station where the train ends. ||
 || freightCars || list of freight cars being carried in visiting order (contains FreightCar objects) ||
 || layout || current layout. (Layout object) ||
 || randomValue || integer value between 0 and 9, used for putting fingerprints, dogear or other bits of realism on switchlists. ||
@@ -186,8 +187,6 @@ Some of these variables are plain string or number values (such as firstStation 
 || allStationsSortedOrder ||   List of all stations / places on the layout, sorted alphabetically. ||
 || allIndustries || List of all industries.  Unsorted. ||
 || stationsWithWork || List of all the stations where the train has cars to pick up or drop off.  Each station is just a collection of industries with cars to pick up and drop off.  Used for drawing the PICL report. ||
-|| firstStation || Station where the train starts. ||
-|| lastStation || Station where the train ends. ||
 || *Train* || ||
 || name   ||string name for train. ||
 || freightCars ||   list of freight cars in the train in no order. ||
