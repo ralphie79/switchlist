@@ -108,11 +108,11 @@ The railroad president is {{ OPTIONAL_Railroad_Owner | default: Leland Stanford 
 
 What this chunk of template says is that there's an optional setting for the name of the railroad owner.  If a setting called "Railroad Owner" is provided, that name will be used.  Otherwise, the text "The railroad president is Leland Stanford" will be displayed.
 
-The variable name in the double curly brackets must start with OPTIONAL_.  In SwitchList, the rest of the name (with under bars switched to spaces) will be displayed as the setting.  The "default:" word is followed with the text that's used if the optional setting is not provided.
+The variable name in the double curly brackets must start with OPTIONAL_.
+In SwitchList, the rest of the name (with under bars switched to spaces) will be displayed as the setting.  The "default:" word is followed with the text that's used if the optional setting is not provided.
 
 Custom template settings can be used in the middle of the template and can include HTML.  A user might fill in an optional setting called "Railroad Address" with "123 N. First St.\<br\>San Jose CA 95101", where the "\<br\>" tag indicates a line break.
 
-add a template variable expansion with a name beginning with OPTIONAL_ and a default 
 == Creating Your Own Reports ==
 
 SwitchList also allows you to create the standard reports in a style to match your switch lists.  Custom reports can be used for the Car Report, Industry Report, Reserved Car Report, and Yard Report.
