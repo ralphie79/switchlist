@@ -6,7 +6,7 @@ Master list of public releases of SwitchList.
 
 
 = Details =
-Version 1.2.9.2 (8/6/2014).  New Style tab, and switchlist templates can now include custom strings that can be changed in the SwitchList UI.  Railroad Letterhead style added.  Minor bug fixes.
+Version 1.2.9.2 (8/6/2014).  New Style tab, and switchlist templates can now include custom strings that can be changed in the SwitchList UI.  Railroad Letterhead style added.  Minor bug fixes.  Download from http://www.vasonabranch.com/railroad/SwitchList.1.2.9.2.dmg
 
 Version 1.2.9 (2/23/2014).  Allow variable days to unload cars, hints about how busy each siding is, annul button works.  File format is incompatible with past versions.
 
