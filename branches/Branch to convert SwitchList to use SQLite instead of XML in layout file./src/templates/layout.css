@@ -1,0 +1,95 @@
+.handwritten {
+  color: DarkBlue;
+  font-family: "Rock Salt";
+}
+
+/* Common formatting for all reports.  Use the same typography as the
+ * Handwritten switchlists - sans-serif fonts, handwritten tables, etc.
+ */
+
+/* Layout name, always visible at top of report. */
+.report-layout-title {
+  font-family: Oswald;
+  font-size: 14pt;
+  text-align:  center;
+  font-variant: small-caps;
+}
+
+/* Report name */
+.report-title {
+  font-family: Oswald;
+  font-size: 20px;
+  text-align:  center;
+  font-variant: small-caps;
+}
+
+/* Basic web UI controls. */
+h1 {
+  font-family: Oswald;
+  font-size: 20px;
+  text-align: center;
+  font-variant: small-caps;
+  border: 2px solid #999;
+  background: #bbb;
+
+}
+
+ul {
+  font-family: Oswald;
+  font-size: 16px;
+}
+ 
+/* Industry report-specific page style.  Again, the default style
+ * always uses a handwritten font.  We avoid a table here because this seems
+ * like more of a clerk's cheat-sheet, and instead use lines to help group and
+ * distinguish items.
+ */
+
+.industry-station  {
+	width:  100%;
+	display: inline-block;
+	margin-bottom: 10px;
+        border-top: 2px solid #aaa;
+}
+
+.industry-station-name {
+	float: left;
+	width: 30%;
+	color: DarkBlue;
+  font-family: "Rock Salt";
+  font-size: 10px;
+}
+
+.industry-station-industries {
+	float: right;
+	width: 70%;
+}
+
+.industry-station-industry {
+	width:  100%;
+	display:  inline-block;
+    border-bottom: 2px solid #aaa;
+	margin-top:  5px;
+	margin-bottom:  5px;
+	margin-left: 5px;
+}
+
+.industry-industry-name {
+	float:  left;
+	width:  50%;
+	color: DarkBlue;
+  font-family: "Rock Salt";
+  font-size: 10px;
+}
+
+.industry-industry-cars {
+	width:  50%;
+	display:  inline-block;
+	margin-bottom: 10px;
+  font-family: "Rock Salt";
+  color: DarkBlue;
+  font-size: 10px;
+}
+
+
+
