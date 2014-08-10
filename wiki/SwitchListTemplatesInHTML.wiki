@@ -202,6 +202,7 @@ Some of these variables are plain string or number values (such as firstStation 
 || carType || Abbreviation for the freight car's type of car (T for tank car, XM for short boxcar, etc.) ||
 || currentLocation || industry or yard where car is currently located. (Industry object.) ||
 || nextStop || Destination this session.  (Industry object.) ||
+|| nextDoor || Specific door where car should be placed at next industry. (Version 1.3 and after) ||
 || *Cargo* || ||
 || name || short description of cargo. ||
 || description ||  long description of cargo, including what kind of car and how many cars per week.  ||
