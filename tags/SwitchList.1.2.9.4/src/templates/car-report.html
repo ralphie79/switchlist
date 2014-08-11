@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet' type='text/css'>
+<link href='switchlist.css' rel='stylesheet' type='text/css'>
+<TITLE>Car Report</TITLE>
+</HEAD>
+<BODY>
+<div class="report">
+<div class="report-layout-title">{{ layout.layoutName }}</div>
+<div class="report-title">CAR REPORT</div>
+<center><u><span class="handwritten">{{ layout.currentDate | date_format: "MMM dd YYYY"}}</u></span></center>
+<br>
+<table class="report" align="center">
+<th>Reporting marks</th><th>Type</th><th>Location</th><th>Contents</th>
+{% for car in layout.allFreightCarsReportingMarkOrder %}
+<tr>
+<td>{{car.reportingMarks}}</td>
+<td>{{car.carType}}</td>
+<td>{{ car.currentLocation.name }} / {{car.currentLocation.location.name }}</td>
+<td>{{car.cargo.name}}</td>
+</tr>
+{% /for %}
+</body>
+</html>
