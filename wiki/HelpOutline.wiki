@@ -59,9 +59,15 @@ Cargos (pg27.html)
 
 Overview (pg28.html)
 
-Preferences (pg29.html)  Does not exist.
+Preferences (pg29.html) 
 
-Set Train Path (pg30.html) Does not exist.
+Set Train Path (pg30.html)
+
+Problems Window (pg31.html)
+
+Suggest Cargos (pg32.html)
+
+Style Tab (pg33.html)
 
 ==SwitchList In Detail==
 SwitchList in Detail (pg50.html)
