@@ -12,7 +12,7 @@ To make a distribution:
 
 2) Update version number in `InfoPlist.strings`
 
-3) Check-in changed `Help Indexer` file and `InfoPlist.strings` file.
+3) Update Help Index.  "cd src; hiutil -C -a SwitchList.help -f SwitchList.help/SwitchList.help.helpindex; cd .." Check-in changed `Help Indexer` file and `InfoPlist.strings` file.
 
 4) Run the script `build/switchlistTag SwitchList.version.with.dots`.  (Replace SwitchList.version.with.dots with `SwitchList.0.7.1` or some such string.)
 
