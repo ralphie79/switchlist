@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet' type='text/css'>
+<link href='layout.css' rel='stylesheet' type='text/css'>
+<TITLE>Switch List for {{ train.name }}</TITLE>
+</HEAD>
+<BODY>
+<div class="report">
+<div class="report-layout-title">{{ layout.layoutName }}</div>
+<div class="report-title">RESERVED CAR REPORT</div>
+<center><u><span class="handwritten">{{ layout.currentDate | date_format: "MMM dd YYYY"}}</u></span></center>
+<br>
+<table class="report" align="center">
+<th>Reporting marks</th><th>Type</th>
+<th>Location</th><th>Contents</th>
+<th>Origin</th><th>destination</th>
+{% for car in layout.allFreightCarsReportingMarkOrder %}
+<tr>
+<td>{{car.reportingMarks}}</td>
+<td>{{car.carType}}</td>
+<td>{{ car.currentLocation.name }} / {{car.currentLocation.location.name }}</td>
+<td>{{car.cargo.name}}</td>
+<td>{{car.cargo.source.name}}</td>
+<td>{{car.cargo.destination.name}} {% if car.nextDoor %} #{{car.doorToSpot}} {% /if %}</td>
+</tr>
+{% /for %}
+</body>
+</html>

@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet' type='text/css'>
+<link href='layout.css' rel='stylesheet' type='text/css'>
+
+<!-- Use iPad specific settings to increase font sizes. -->
+<link href='switchlist.css' rel='stylesheet' type='text/css'>
+<link href='switchlist-ipad.css' rel='stylesheet' type='text/css' media='only screen and (min-device-width: 481px) and (max-device-width: 1024px)'/>
+
+
+<TITLE>Yard Report</TITLE>
+</HEAD>
+<BODY>
+<div class="report">
+{% for station in layout.allStationsSortedOrder %}
+  {% for industry in station.allIndustriesSortedOrder %}
+    {% if industry.isYard %}
+	  {% if industry.allFreightCarsSortedOrder.@count %}
+ 	    <div style="page-break-after: always;">
+          <div class="report-layout-title">{{ layout.layoutName }}</div>
+            <div class="report-title">YARD REPORT</div>
+              <div class="report-layout-title">Cars At {{industry.name}}:</div>
+                <br>
+                <center>
+                <TABLE class="switch-list">
+                  <TR>
+                    <TH>Car No.</TH>
+                    <TH>Car Type</TH>
+                    <TH>Train</TH>
+                    <TH>To</TH>
+                    <th>Contents</th>
+                  </TR>
+                  {% for car in industry.allFreightCarsSortedOrder %}
+                    <TR class="switch-list-line">
+                      <TD>{{car.reportingMarks | jitter}}</TD>
+                      <TD>{{car.carType | jitter}}</TD>
+                      <TD>{{car.currentTrain.name | jitter}}</TD>
+                      <TD>{{car.nextStop.location.name | jitter }} / {{car.nextStop.name | jitter}} {% if car.nextDoor %} #{{car.nextDoor}}{% /if %}</td>
+                      <td>
+                        {% if car.isLoaded %}
+                          {{car.cargo.name}}
+                        {% else %}
+                          empty
+                        {% /if %}
+                      </td>
+                    </tr>
+                  {% /for %}
+                 </TABLE>
+                 </center>
+               </div>
+             </div>
+          </div>
+        </div>
+      {% /if %}
+	{% /if %}
+  {% /for %}
+{% /for %}
+</div>
+</body>
+</html>
