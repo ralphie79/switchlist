@@ -1,0 +1,342 @@
+<HTML>
+<HEAD>
+<TITLE>Cargo Report for {{layout.layoutName}}</TITLE>
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet' type='text/css'>
+
+<!-- Use iPad specific settings to increase font sizes. -->
+<link href='layout.css' rel='stylesheet' type='text/css'>
+<style>
+p {
+  font-family: serif;
+}
+
+ul {
+  font-family: serif;
+}
+
+/* Formatting for TD cell showing car count. */
+.carCountCell {
+  text-align: center;
+}
+
+/* Formatting for TD cell showing row's industry name. */
+.industryCell {
+  text-align: right;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/* JSON array describing SwitchList industries. */ 
+RAW_INDUSTRIES = [{% for industry in layout.allIndustries %}
+  { name: "{{industry.nameAndLoad | js_escape_string}}", objectId: "{{industry.objectID.URIRepresentation}}", sidingLength: {{industry.sidingLength}}},{% /for %}
+];
+
+/* JSON array describing SwitchList yards. */ 
+RAW_YARDS = [{% for industry in layout.allYards %}
+  { name: "{{industry.nameAndLoad | js_escape_string }}", objectId: "{{industry.objectID.URIRepresentation}}", sidingLength: 0 },{% /for %}
+];
+
+/* JSON array describing SwitchList cargos. */ 
+RAW_CARGOS = [{% for cargo in layout.allCargos %}
+  { name: "{{cargo.name | js_escape_string}}",     carType: "{{cargo.carType | js_escape_string}}", carsPerWeek: {{cargo.carsPerWeek}},
+    source: "{{cargo.source.objectID.URIRepresentation}}", 
+    destination: "{{cargo.destination.objectID.URIRepresentation}}",
+    unloadingDays: "{{cargo.unloadingDays}}" },
+   {%/for%}
+];
+
+/* JSON array describing SwitchList car types. */ 
+RAW_CAR_TYPES = [{% for carType in layout.allCarTypes %}
+  { name:"{{carType.carTypeName | js_escape_string}}", description:"{{carType.carTypeDescription | js_escape_string}}" }, {%/for%}
+  { name: "?", description: 'Any'},
+];
+
+function sortByName(a,b) {
+  return a['name'].localeCompare(b['name']);
+}
+
+/**
+ * Class handling generation of the cargo report table.
+ */
+function CargoReportGenerator() {
+  // List of all industries and yards.  Each element is a JSON object/.
+  this.allIndustries = RAW_INDUSTRIES.concat(RAW_YARDS);
+  this.allIndustries.sort(sortByName);
+
+  // List of all car types.  Each element is a JSON object describing
+  // a car type.
+  this.allCarTypes = RAW_CAR_TYPES;
+  this.allCarTypes.sort(sortByName);
+  
+  // Dict mapping source industry and car type to count of cars
+  // sent out of that industry per week.
+  this.industryToSourceCarTypeMap = {}
+
+  // Dict mapping destination industry and car type to count of cars
+  // received by that industry per week.
+  this.industryToDestCarTypeMap = {}
+
+  // Dict mapping car type to total cars sent per week.
+  this.carTypeToCountMap = {};
+
+  // Map of each industry objectId to name.
+  this.industryIdToNameMap = {}
+  this.industryIdToIndustryMap = {}
+}
+
+/**
+ * Generates DOM objects to fill out the cargo report table.  Processes the
+ * list of industries, yards, cargos, and car types to fill out the table.
+ * 
+ * Args:
+ *   cargoReportTable: TABLE element which will contain completed table.
+ */
+CargoReportGenerator.prototype.GenerateTable = function(cargoReportTable) {
+  // Run through all industries and set up the maps.
+  var i;
+  for (i=0;i < this.allIndustries.length; i++) {
+    var industry = this.allIndustries[i];
+    this.industryToSourceCarTypeMap[industry['objectId']] = {};
+    this.industryToDestCarTypeMap[industry['objectId']] = {}; 
+    this.industryIdToNameMap[industry['objectId']] = industry['name'];
+    this.industryIdToIndustryMap[industry['objectId']] = industry;
+ }
+
+  // Run through all industries, and tabulate number of incoming and
+  // outgoing cars per week for each industry/car type pair.
+  for (i=0;i<RAW_CARGOS.length;i++) {
+    var cargo = RAW_CARGOS[i];
+    var sourceId = cargo['source']
+    var destId = cargo['destination']
+    var carType = cargo['carType'];
+    var carsPerWeek = cargo['carsPerWeek'];
+    var unloadingDays = cargo['unloadingDays'];
+
+    // Cargos without specific car requirements go in '?'.
+    if (carType == '') {
+      carType = '?';
+    }				    
+
+	if (sourceId == "" || destId == "") {
+		// Ignore incomplete or bogus entries.
+		continue;
+	}
+	
+    if (this.industryToSourceCarTypeMap[sourceId][carType] == undefined) {
+      this.industryToSourceCarTypeMap[sourceId][carType] = 0;
+    }
+    if (this.industryToDestCarTypeMap[destId][carType] == undefined) {
+      this.industryToDestCarTypeMap[destId][carType] = 0;
+    }
+    if (this.carTypeToCountMap[carType] == undefined) {
+      this.carTypeToCountMap[carType] = 0;
+    }
+
+    this.industryToSourceCarTypeMap[sourceId][carType] += carsPerWeek;
+    this.industryToDestCarTypeMap[destId][carType] += (carsPerWeek * unloadingDays);
+    this.carTypeToCountMap[carType] += carsPerWeek;
+  }
+
+  // Create the table, row by row.
+  cargoReportTable.appendChild(this.makeTableHeader());
+
+  for (i=0;i<this.allIndustries.length;i++) {
+    industry = this.allIndustries[i];
+    cargoReportTable.appendChild(this.makeIndustryRow(industry['objectId']));
+  }
+  cargoReportTable.appendChild(this.makeTotalRow());
+}
+
+/**
+ * Creates the header for the cargo report.
+ */
+CargoReportGenerator.prototype.makeTableHeader = function() {
+  var headerRow = document.createElement('tr');
+  var industryTitle = document.createElement('th');
+  industryTitle.innerText = 'INDUSTRY';
+  headerRow.appendChild(industryTitle);
+
+  // Columns for each car type should have car type abbreviation
+  // on top, with the description in smaller text below.
+  var i;
+  for (i=0;i<this.allCarTypes.length;i++) {
+    var carTypeTitle = document.createElement('th');
+    carTypeTitle.innerHTML = this.allCarTypes[i]['name'] +
+      '<br><small>(' + this.allCarTypes[i]['description'] + ')</small>';
+    headerRow.appendChild(carTypeTitle);
+  }				       
+
+  var carTypeTitle = document.createElement('th');
+  carTypeTitle.innerHTML = 'Total';
+  headerRow.appendChild(carTypeTitle);
+  return headerRow;
+}
+
+/**
+ * Creates the table row for a particular industry.
+ *
+ * Args:
+ *   industryId: objectID for the industry to draw.
+ *
+ * Returns:
+ *   <TR> element for the row.
+ */
+CargoReportGenerator.prototype.makeIndustryRow = function(industryId) {
+  var industryName = this.industryIdToNameMap[industryId];
+  if (industryName == '') {
+    industryName = 'Not specified';
+  }
+  var row = document.createElement("tr");
+
+  // Industry name is at left, right-justified.
+  var industryNameTag = document.createElement("td");
+  industryNameTag.className = 'industryCell';
+  industryNameTag.appendChild(document.createTextNode(industryName));
+  row.appendChild(industryNameTag);
+
+  var totalCarCount = 0;
+  for (j=0;j<this.allCarTypes.length;j++) {
+    var carType = this.allCarTypes[j]['name'];
+    var carCountCell = this.makeCountTag(industryId, carType);
+    sourceCount = this.industryToSourceCarTypeMap[industryId][carType];
+    destCount = this.industryToDestCarTypeMap[industryId][carType];
+    if (sourceCount) totalCarCount += sourceCount;
+    if (destCount) totalCarCount += destCount;
+    row.appendChild(carCountCell);
+  }
+
+  var totalCountCell = document.createElement('td');
+  var totalCellText = document.createTextNode(totalCarCount);
+  totalCountCell.appendChild(totalCellText);
+  row.appendChild(totalCountCell);
+  var industry = this.industryIdToIndustryMap[industryId];
+  sidingCapacityCars = (industry['sidingLength'] / 40);
+  carsPerDay = (totalCarCount / 7);
+  if (totalCarCount == 0) {
+    totalCountCell.style.color = 'lightGray';
+  } else if (sidingCapacityCars > 0 && 
+             sidingCapacityCars < carsPerDay) {
+    totalCountCell.style.color = 'red';
+    totalCountCell.title = "Siding has room for " + sidingCapacityCars +
+                           " 40' cars but may not hold " + 
+                           (carsPerDay / 7).toFixed(1) +
+		           " cars a day.";
+  } else if (sidingCapacityCars > 0 && 
+             sidingCapacityCars < carsPerDay) {
+    totalCountCell.style.color = 'yellow';
+    totalCountCell.title = "Siding looks full - can hold " + sidingCapacityCars +
+                           " 40' cars but may not hold " + 
+                           carsPerDay.toFixed(1) +
+		           " cars a day.";
+  } else if (sidingCapacityCars > 0) {
+    totalCountCell.title = "Siding looks large enough - can hold " + sidingCapacityCars +
+                           " 40' cars and receives " + 
+                           carsPerDay.toFixed(1) +
+		           " cars a day.";
+  }
+  row.appendChild(totalCountCell);
+
+  return row;
+}
+
+/**
+ * Creates the total row listing the number of cars shipped per car type.
+ *
+ * Returns:
+ *   <TR> element for the row.
+ */
+CargoReportGenerator.prototype.makeTotalRow = function() {
+  var row = document.createElement("tr");
+
+  var totalRowHeaderTag = document.createElement("td");
+  totalRowHeaderTag.className = 'industryCell';
+  totalRowHeaderTag.appendChild(document.createTextNode('TOTAL PER WEEK'));
+  row.appendChild(totalRowHeaderTag);
+
+  for (j=0;j<this.allCarTypes.length;j++) {
+    var totalCountTag = document.createElement("td");
+    totalCountTag.className = 'carCountCell';
+    var carCount = this.carTypeToCountMap[this.allCarTypes[j]['name']];
+    if (carCount == undefined) {
+      carCount = 0;
+    }
+    totalCountTag.appendChild(document.createTextNode(carCount));
+    row.appendChild(totalCountTag);
+  }
+
+  return row;
+}
+
+/**
+ * Creates the count cell for a particular industry/car type.
+ * Cell should contain the count of cars of the type originating from
+ * this industry, and received by this industry.
+ *
+ * Args:
+ *   industryId: objectID for the industry to show.
+ *   carType: short name of the car type to show.
+ *
+ * Returns:
+ *   <td> element to put into the table.
+ */
+CargoReportGenerator.prototype.makeCountTag = function(industryId, carType) {
+  var carCountCell = document.createElement('td');
+  carCountCell.className = 'carCountCell';
+
+  var sourceCarCount = this.industryToSourceCarTypeMap[industryId][carType];
+  if (sourceCarCount == undefined) {
+    sourceCarCount = 0;
+  }
+  var destCarCount = this.industryToDestCarTypeMap[industryId][carType];
+  if (destCarCount == undefined) {
+    destCarCount = 0;
+  }
+
+  var cellText = document.createTextNode(sourceCarCount + ' / ' + destCarCount);
+  carCountCell.appendChild(cellText);
+  if (sourceCarCount == 0 && destCarCount == 0) {
+    carCountCell.style.color = 'lightGray';
+  }
+  return carCountCell;
+}
+
+/**
+ * Code to execute on page load.  Creates the cargo report table from the
+ * arrays of objects from the layout database. 
+ */
+function onload() {
+  var cargoTable = document.getElementById('cargoReportTable');
+  var c = new CargoReportGenerator();
+  c.GenerateTable(cargoTable);
+}
+
+</script>
+</HEAD>
+<BODY onload="onload()">
+<div class="report">
+<div class="report-layout-title">{{ layout.layoutName }}</div>
+<div class="report-title">CARGO REPORT</div>
+<p>
+Use this table to get a big-picture idea of what cargos are arriving and
+leaving each industry.  Look for problems like:
+<ul>
+<li>Similar industries with very different levels of incoming and outgoing
+cars.
+<li>Staging yards or offline industries having the correct proportion of
+traffic.
+<li>Industries missing traffic with a particular kind of car.
+</ul>
+<p>
+This table shows the number of CARS IN PER WEEK / CARS OUT PER WEEK for
+each car type and each industry.  (Cars that take multiple days to unload count extra
+for each day they will be on the siding.)
+</p>
+<p>
+
+<table id="cargoReportTable" cellpadding="1"></table>
+</div>
+</body>
+</html>
