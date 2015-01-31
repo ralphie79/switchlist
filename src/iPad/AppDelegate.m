@@ -208,7 +208,6 @@
         NSURL *documentsDirectory = [newDocumentURL URLByAppendingPathComponent: @"Documents"];
         NSError *error;
         NSArray *files = [fm contentsOfDirectoryAtURL: documentsDirectory includingPropertiesForKeys: [NSArray arrayWithObject: NSURLNameKey] options:0 error:&error];
-        NSLog(@"%@", files);
     });
 }
                    
@@ -307,10 +306,6 @@
     // TODO: examples, too?
     NSError *error = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSLog(@"Samples directory is %@", [[self sampleDocumentsDirectory] path]);
-    NSArray *files1 = [fileManager contentsOfDirectoryAtPath: [[[NSBundle mainBundle] resourceURL]  path]
-                                                      error: &error];
-    NSLog(@"%@", files1);
     NSArray *files = [fileManager contentsOfDirectoryAtPath: [[self sampleDocumentsDirectory] path]
                                                       error: &error];
 
