@@ -280,10 +280,6 @@
     NSLog(@"User directory is %@", [[self applicationDocumentsDirectory] path]);
 
     
-    NSArray *files1 = [fileManager contentsOfDirectoryAtPath: [[[NSBundle mainBundle] resourceURL] path]
-                                                      error: &error];
-
-    NSLog(@"%@", files1);
     NSArray *files = [fileManager contentsOfDirectoryAtPath: [[self applicationDocumentsDirectory] path]
                                                       error: &error];
     if (error) {
