@@ -92,7 +92,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"graphSegue"]) {
         LayoutGraphViewController *graphController = segue.destinationViewController;
-        [graphController setCurrentTrain: [[self allTrains] objectAtIndex: 0]];
+        ScheduledTrain *selected = [self trainAtIndexPath: self.expandedCellPath];
+        [graphController setCurrentTrain: selected];
         graphController.controller = self;
     }
 }
