@@ -764,8 +764,8 @@
 		3E9B786A1606527600891318 /* Unit tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9B786B1606527600891318 /* Engine unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Engine unit tests-Info.plist"; sourceTree = "<group>"; };
 		3E9B794716065BA600891318 /* WebKit */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = WebKit; path = /System/Library/Frameworks/WebKit.framework/WebKit; sourceTree = "<absolute>"; };
-		3E9D56ED16225616007F49EC /* LayoutGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutGraph.h; sourceTree = "<group>"; };
-		3E9D56EE16225616007F49EC /* LayoutGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutGraph.m; sourceTree = "<group>"; };
+		3E9D56ED16225616007F49EC /* LayoutGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayoutGraph.h; path = Engine/LayoutGraph.h; sourceTree = "<group>"; };
+		3E9D56EE16225616007F49EC /* LayoutGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayoutGraph.m; path = Engine/LayoutGraph.m; sourceTree = "<group>"; };
 		3E9D56F216225B41007F49EC /* LayoutGraphTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutGraphTest.h; sourceTree = "<group>"; };
 		3E9D56F316225B41007F49EC /* LayoutGraphTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutGraphTest.m; sourceTree = "<group>"; };
 		3E9E1F780951605600C5E038 /* IndustryReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryReport.h; sourceTree = "<group>"; };
