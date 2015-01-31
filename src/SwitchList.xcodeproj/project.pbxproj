@@ -26,7 +26,6 @@
 		3E335E63160D6A050097360C /* FileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E335E62160D6A050097360C /* FileCell.m */; };
 		3E3620FA1539341700A57574 /* switchlist-carlist.html in Resources */ = {isa = PBXBuildFile; fileRef = 3ECAA7F3145D30EC00AB21A7 /* switchlist-carlist.html */; };
 		3E37741A16082E200023C8B5 /* switchlistButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E37741916082E200023C8B5 /* switchlistButton.png */; };
-		3E37741C160838D00023C8B5 /* vasona.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3E37741B160838D00023C8B5 /* vasona.sql */; };
 		3E37741F160847000023C8B5 /* SwitchListColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E37741E160847000023C8B5 /* SwitchListColors.m */; };
 		3E386E8C19B2A3F50040A69B /* check-1-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E386E8B19B2A3F50040A69B /* check-1-icon.png */; };
 		3E386E8E19B2A4010040A69B /* uncheck-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E386E8D19B2A4010040A69B /* uncheck-icon.png */; };
@@ -88,6 +87,8 @@
 		3E540BDA160CE68400D5B759 /* ChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E540BD9160CE68400D5B759 /* ChooseTemplateViewController.m */; };
 		3E57C59412FBD95E00E51008 /* SwitchListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E57C59212FBD95E00E51008 /* SwitchListBaseView.m */; };
 		3E57C5CD12FBDCC600E51008 /* KaufmanSwitchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E57C5CC12FBDCC600E51008 /* KaufmanSwitchListView.m */; };
+		3E5BEDA91A7B4DCC00D14294 /* SwitchList-iPad.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BEDA81A7B4DCC00D14294 /* SwitchList-iPad.entitlements */; };
+		3E5BEDAC1A7B62C400D14294 /* vasona.layoutdb in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BEDAB1A7B62C400D14294 /* vasona.layoutdb */; };
 		3E5E628C160E42EE0074AE1E /* SwitchListEngine.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E9B75B716063FE600891318 /* SwitchListEngine.dylib */; };
 		3E5E629C160E45EA0074AE1E /* SwitchListEngine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9B75B716063FE600891318 /* SwitchListEngine.dylib */; };
 		3E60814213614EA30054DBA1 /* TextSwitchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E60814113614EA30054DBA1 /* TextSwitchListView.m */; };
@@ -689,6 +690,9 @@
 		3E57C59212FBD95E00E51008 /* SwitchListBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchListBaseView.m; sourceTree = "<group>"; };
 		3E57C5CB12FBDCC600E51008 /* KaufmanSwitchListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaufmanSwitchListView.h; sourceTree = "<group>"; };
 		3E57C5CC12FBDCC600E51008 /* KaufmanSwitchListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaufmanSwitchListView.m; sourceTree = "<group>"; };
+		3E5BEDA81A7B4DCC00D14294 /* SwitchList-iPad.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SwitchList-iPad.entitlements"; sourceTree = "<group>"; };
+		3E5BEDAA1A7B4E0B00D14294 /* Switchlist-iPad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Switchlist-iPad.entitlements"; path = "Switchlist-iPad/Switchlist-iPad.entitlements"; sourceTree = "<group>"; };
+		3E5BEDAB1A7B62C400D14294 /* vasona.layoutdb */ = {isa = PBXFileReference; lastKnownFileType = file; name = vasona.layoutdb; path = "resources-iPad/vasona.layoutdb"; sourceTree = "<group>"; };
 		3E60814013614EA30054DBA1 /* TextSwitchListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSwitchListView.h; sourceTree = "<group>"; };
 		3E60814113614EA30054DBA1 /* TextSwitchListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSwitchListView.m; sourceTree = "<group>"; };
 		3E60B66D1318B49C007C094D /* ReportTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTest.h; sourceTree = "<group>"; };
@@ -1024,6 +1028,8 @@
 		2A37F4AAFDCFA73011CA2CEA /* SwitchList.CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3E5BEDAB1A7B62C400D14294 /* vasona.layoutdb */,
+				3E5BEDAA1A7B4E0B00D14294 /* Switchlist-iPad.entitlements */,
 				3E6CC55A19AACA0900C768ED /* Waterside Yard.switchlist */,
 				3E6CC55819AAC9FD00C768ED /* Stockton with Divisions.switchlist */,
 				3EC1D47D160AEDB700765095 /* QuartzCore.framework */,
@@ -1088,6 +1094,7 @@
 				3E6C6EC712F007E200C7A8D1 /* Credits.html */,
 				3EA1162113501BC500365DEB /* SwitchListReportWindow.xib */,
 				3E1FD9B615CCEBC800568E36 /* SwitchList.entitlements */,
+				3E5BEDA81A7B4DCC00D14294 /* SwitchList-iPad.entitlements */,
 				3E1FD9B415CCE78F00568E36 /* icon.icns */,
 			);
 			name = Resources;
@@ -1796,6 +1803,11 @@
 				TargetAttributes = {
 					3E407D55160693170037134D = {
 						DevelopmentTeam = PRKJWD6X23;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					3E9B75B616063FE600891318 = {
 						DevelopmentTeam = PRKJWD6X23;
@@ -1855,6 +1867,7 @@
 				3EAAA77A160708BF00C3D7A8 /* switchlist-carlist.html in Resources */,
 				3EAAA77B160708BF00C3D7A8 /* switchlist-home.html in Resources */,
 				3E45402719A93036000755D9 /* YardTable.storyboard in Resources */,
+				3E5BEDAC1A7B62C400D14294 /* vasona.layoutdb in Resources */,
 				3EAAA77C160708BF00C3D7A8 /* switchlist-layout.html in Resources */,
 				3EAAA77D160708BF00C3D7A8 /* yard-report.html in Resources */,
 				3E386E8E19B2A4010040A69B /* uncheck-icon.png in Resources */,
@@ -1875,6 +1888,7 @@
 				3EC538FA19B16AED00F2351A /* industryNameTraining.bks in Resources */,
 				3E45402919A9319B000755D9 /* LayoutTable.storyboard in Resources */,
 				3E45401F19A927E1000755D9 /* IndustryTable.storyboard in Resources */,
+				3E5BEDA91A7B4DCC00D14294 /* SwitchList-iPad.entitlements in Resources */,
 				3E45403019A93359000755D9 /* reveal-icon.png in Resources */,
 				3E6CC55B19AACA0900C768ED /* Waterside Yard.switchlist in Resources */,
 				3E407DD3160694070037134D /* T.jpg in Resources */,
@@ -1886,7 +1900,6 @@
 				3EAAA7801608226B00C3D7A8 /* Default-Portrait~ipad.png in Resources */,
 				3EAAA7821608235400C3D7A8 /* Default-Landscape~ipad.png in Resources */,
 				3E37741A16082E200023C8B5 /* switchlistButton.png in Resources */,
-				3E37741C160838D00023C8B5 /* vasona.sql in Resources */,
 				3E6CC55919AAC9FD00C768ED /* Stockton with Divisions.switchlist in Resources */,
 				3E45402319A92C0C000755D9 /* TrainTable.storyboard in Resources */,
 			);
@@ -1985,7 +1998,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Copy all the builtin_templates into the resource directory.\npushd builtin-templates\nfind . -type d -not -name .svn -exec cp -rf \\{\\} \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" \\;\npopd\nmkdir \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/SAMPLES\"\ncp resources-iPad/*.sql \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/SAMPLES/VasonaBranch.sql\"\ncp resources-iPad/*.switchlist \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/SAMPLES\"\n";
+			shellScript = "# Copy all the builtin_templates into the resource directory.\npushd builtin-templates\nfind . -type d -not -name .svn -exec cp -rf \\{\\} \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" \\;\npopd\nmkdir -p \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Samples\"\npwd\nls ../examples\nls ../examples/*\ncp -f ../examples/*/*.layoutdb \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"/Samples\n";
 		};
 		3E6B59D9140CB21A006FFDD3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1998,7 +2011,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Copy all the builtin_templates into the resource directory.\npushd builtin-templates\nfind . -type d -not -name .svn -exec cp -rf \\{\\} \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" \\;\npopd\n\n# Make sure the examples aren't writable.\ncp -f ../examples/*/*.swl \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\nchmod 444 $TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/*.swl\n\n# Copy fonts.\n# Better way to delete old?\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts\"\nmkdir \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts\"\ncp resources/RockSalt.ttf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts\"\n\nchmod 444 $TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts/*.ttf\n\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/prop-base\"\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/props\"\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/text-base\"\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/tmp\"\n                  \necho \"Compiling industry name training file\"                  \n$TARGET_BUILD_DIR/generate_classifier_file \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/typicalIndustries.plist\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/industryNameTraining.bks\"\n";
+			shellScript = "# Copy all the builtin_templates into the resource directory.\npushd builtin-templates\nfind . -type d -not -name .svn -exec cp -rf \\{\\} \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" \\;\npopd\n\n# Make sure the examples aren't writable.\nmkdir -p \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Samples\"\ncp -f \"../examples/*/*.layoutdb\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"/Samples\nchmod 444 $TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Samples/*.layoutdb\n\n# Copy fonts.\n# Better way to delete old?\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts\"\nmkdir \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts\"\ncp resources/RockSalt.ttf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts\"\n\nchmod 444 $TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/fonts/*.ttf\n\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/prop-base\"\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/props\"\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/text-base\"\nrm -rf \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/tmp\"\n                  \necho \"Compiling industry name training file\"                  \n$TARGET_BUILD_DIR/generate_classifier_file \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/typicalIndustries.plist\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/industryNameTraining.bks\"\n";
 		};
 		3E6F193C1985AF28007AA710 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2462,6 +2475,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Switchlist-iPad/Switchlist-iPad.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -2486,6 +2500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -2499,6 +2514,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Switchlist-iPad/Switchlist-iPad.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -2517,6 +2533,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -2531,6 +2548,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Switchlist-iPad/Switchlist-iPad.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -2549,6 +2567,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -2563,6 +2582,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Switchlist-iPad/Switchlist-iPad.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -2581,6 +2601,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
