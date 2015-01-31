@@ -53,13 +53,13 @@
     NSMutableString *description = [NSMutableString string];
     NSSet *outCargos = [i originatingCargos];
     NSSet *inCargos = [i terminatingCargos];
-    if ([outCargos count] != 0) {
-        [description appendFormat: @"Receives %@. ", [[outCargos anyObject] cargoDescription]];
-    }
     if ([inCargos count] != 0) {
-        [description appendFormat: @"Ships %@. ", [[inCargos anyObject] cargoDescription]];
+        [description appendFormat: @"Receives %@. ", [[inCargos anyObject] cargoDescription]];
     }
-    if ([outCargos count] == 0 && [inCargos count] == 0) {
+    if ([outCargos count] != 0) {
+        [description appendFormat: @"Ships %@. ", [[outCargos anyObject] cargoDescription]];
+    }
+     if ([outCargos count] == 0 && [inCargos count] == 0) {
         [description appendFormat: @"No cargos arriving or leaving. "];
     }
     return description;
