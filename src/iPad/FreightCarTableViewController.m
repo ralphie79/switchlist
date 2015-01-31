@@ -66,7 +66,15 @@
     AppDelegate *myAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
     EntireLayout *entireLayout = myAppDelegate.entireLayout;
  
-    FreightCar *fc = [entireLayout createFreightCar: @"AA&A 84712" withCarType: @"XM" withLength: [NSNumber numberWithInt: 40]];
+    // Create each freight car with a new number.
+    int number = 84709;
+    NSString *reportingMarks;
+    do {
+        number++;
+        reportingMarks = [NSString stringWithFormat: @"AA&A %d", number];
+    } while ([entireLayout freightCarWithName: reportingMarks] != nil);
+    
+    FreightCar *fc = [entireLayout createFreightCar: reportingMarks withCarType: @"XM" withLength: [NSNumber numberWithInt: 40]];
     [fc setCurrentLocation: [entireLayout workbenchIndustry]];
     
     [self regenerateTableData];
