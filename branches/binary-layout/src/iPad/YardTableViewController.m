@@ -72,6 +72,7 @@
     EntireLayout *entireLayout = myAppDelegate.entireLayout;
     
     Yard *yard = [entireLayout createYardWithName: @"A-Yard"];
+    [yard setLocation: [entireLayout workbench]];
 
     [self regenerateTableData];
     [self.tableView reloadData];
