@@ -41,6 +41,7 @@
     // list of possible values.
     AppDelegate *myAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
     EntireLayout *myLayout = myAppDelegate.entireLayout;
+    // TODO(bowdidge): Handle industries and yards for selecting positions.
     self.allIndustries = [myLayout allIndustries];
     
     // Uncomment the following line to preserve selection between presentations.
