@@ -69,8 +69,9 @@
     AppDelegate *myAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
     EntireLayout *entireLayout = myAppDelegate.entireLayout;
     
-    Cargo *cargo = [entireLayout createCargoWithName: @"A Cargo"];
-    
+    Cargo *cargo = [entireLayout createCargoWithName: @"A cargo"];
+    [cargo setSource: [entireLayout workbenchIndustry]];
+    [cargo setDestination: [entireLayout workbenchIndustry]];
     [self regenerateTableData];
     [self.tableView reloadData];
     NSInteger currentIndex = [self.allCargos indexOfObject: cargo];
