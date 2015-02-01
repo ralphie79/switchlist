@@ -37,6 +37,7 @@
 @interface CargoSelectionCell: UITableViewCell
 @property(retain, nonatomic) IBOutlet UIButton *checkbox;
 @property(retain, nonatomic) IBOutlet UILabel *cargoDescription;
+@property(retain, nonatomic) IBOutlet ProposedCargo *proposedCargo;
 @property(nonatomic) BOOL isSelected;
 
 - (IBAction) selectCargo: (id) sender;
@@ -50,6 +51,7 @@
 - (IBAction) selectCargo: (id) sender {
     // TODO(bowdidge): Need to mark as keep.
     self.checkbox.selected = !self.checkbox.selected;
+    self.proposedCargo.isKeep = [NSNumber numberWithBool: self.checkbox.selected ];
 }
 @end
 
@@ -67,15 +69,14 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)viewWillAppear: (BOOL) animated {
+    [super viewWillAppear: animated];
     // Do any additional setup after loading the view.
     AppDelegate *myAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
     self.entireLayout = myAppDelegate.entireLayout;
     self.allCategories = myAppDelegate.typicalIndustryStore.typicalIndustries;
     self.categoryMap = myAppDelegate.typicalIndustryStore.categoryMap;
-    [self doChangeIndustryClass: self];
+    [self doChangeSelectedIndustry: self];
     self.title = @"Suggest Cargos";
     [self doChangeSelectedIndustry: self];
 }
@@ -173,20 +174,24 @@
 	NSString *msg = [NSString stringWithFormat: @"%d proposed cargo%s, %d existing cargo%s.",
 					 proposedCargoCount, (proposedCargoCount == 1 ? "" : "s"),
 					 existingCargoCount, (existingCargoCount == 1 ? "" : "s")];
-	//[proposedCargoCountMsg_ setStringValue: msg];
+    self.proposedCargoCountMsg.text = msg;
 }
 
+// Done on change of UIPicker.
 - (IBAction) doChangeIndustryClass: (id) sender {
-	NSString *category = @"cannery"; //[self.categoryPicker titleOfSelectedItem];
+    NSInteger row = [self.categoryPicker selectedRowInComponent: 0];
+    NSString *category = [self.suggestedCategories objectAtIndex: row];
 	[self setCargosToCategory: category];
     [self.categoryPicker reloadAllComponents];
 }
 
+// Done on change of what industry we're looking at.
 - (IBAction) doChangeSelectedIndustry:(id) sender {
     AppDelegate *myAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
     self.industryName.text = [NSString stringWithFormat: @"%@ is a", self.selectedIndustry.name];
     self.suggestedCategories = [myAppDelegate.typicalIndustryStore categoriesForIndustryName: self.selectedIndustry.name];
-    [self.categoryPicker reloadAllComponents];
+    // Automatically selects first.
+    [self doChangeIndustryClass: self];
 }
 
 // Create the selected cargos.
@@ -196,6 +201,8 @@
             [proposedCargo createRealCargoWithIndustry: self.selectedIndustry];
         }
     }
+    [self doChangeSelectedIndustry: self];
+    
 }
 
 /*
@@ -268,8 +275,9 @@
     [cell.checkbox setImage: [UIImage imageWithContentsOfFile: filename] forState: UIControlStateNormal];
     filename = [[[NSBundle mainBundle] URLForResource: @"check-1-icon" withExtension: @"png"] path];
     [cell.checkbox setImage: [UIImage imageWithContentsOfFile: filename] forState: UIControlStateSelected];
-   
+    
     ProposedCargo *c = [self.proposedCargos objectAtIndex: [indexPath row]];
+    cell.proposedCargo = c;
     const char* fromTo = [c isReceive] ? "from" : "to";
     cell.cargoDescription.text = [NSString stringWithFormat: @"%@ %s West Coast", c.name, fromTo];
     if ([c isExistingCargo]) {
