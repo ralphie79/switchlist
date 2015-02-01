@@ -141,6 +141,7 @@
     // TODO(bowdidge): Should be different depending on the cell - short or long.
     CGRect popoverRect = [cell convertRect: cell.shortLocation.frame toView: self.view];
     IndustryChooser *chooser = [self doRaisePopoverWithStoryboardIdentifier: @"industryChooser" fromRect: popoverRect];
+    chooser.showYards = YES;
     chooser.keyObject = cell.freightCar;
     chooser.keyObjectSelection = cell.freightCar.currentLocation;
     chooser.myController = self;

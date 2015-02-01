@@ -208,6 +208,7 @@
         NSURL *documentsDirectory = [newDocumentURL URLByAppendingPathComponent: @"Documents"];
         NSError *error;
         NSArray *files = [fm contentsOfDirectoryAtURL: documentsDirectory includingPropertiesForKeys: [NSArray arrayWithObject: NSURLNameKey] options:0 error:&error];
+        NSLog(@"%@", files);
     });
 }
                    
