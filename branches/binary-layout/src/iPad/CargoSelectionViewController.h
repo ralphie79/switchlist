@@ -50,6 +50,7 @@
 @property(retain, nonatomic) NSArray *allCategories;
 @property(retain, nonatomic) NSDictionary *categoryMap;
 @property(retain, nonatomic) IBOutlet UIButton *createCargosButton;
+@property(retain, nonatomic) IBOutlet UITextField *proposedCargoCountMsg;
 
 @property(retain, nonatomic) NSArray *proposedCargos;
 
