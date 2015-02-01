@@ -83,7 +83,12 @@
     self.myIndustry = industry;
     self.industryNameLabel.text = [industry name];
     self.industryNameField.text = [industry name];
-    self.sidingLengthLabel.text = [NSString stringWithFormat: @"%d foot siding", [[industry sidingLength] intValue]];
+    NSInteger sidingLength = [[industry sidingLength] intValue];
+    if (sidingLength > 0) {
+            self.sidingLengthLabel.text = [NSString stringWithFormat: @"%d foot siding", [[industry sidingLength] intValue]];
+    } else {
+            self.sidingLengthLabel.text = @"";
+    }
     self.industryDescription.text = [self descriptionForIndustry: industry];
 
     self.townNameLabel.text = [[industry location] name];
