@@ -25,63 +25,14 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 
+#import <UIKit/UIKit.h>
+
 #import "AppDelegate.h"
 #import "Cargo.h"
 #import "CargoSelectionViewController.h"
 #import "EntireLayout.h"
+#import "ProposedCargo.h"
 #import "TypicalIndustryStore.h"
-
-// Represents a potential cargo for the current industry.
-@interface ProposedCargo : NSObject {
-    NSNumber *isKeep;
-    BOOL isReceive;
-    NSString *name;
-    NSString *carsPerWeek;
-    InduYard *industry;
-    BOOL isExistingCargo;
-}
-// Value of checkbox whether to create this cargo.  NSNumber required
-// for checkbox.
-@property (nonatomic, retain) NSNumber *isKeep;
-// Is incoming cargo.
-@property (nonatomic) BOOL isReceive;
-// String value for receive column: either "Receive" or "Ship".
-@property (nonatomic, readonly) NSString *receiveString;
-// Cargo description.
-@property (nonatomic, retain) NSString *name;
-// Rate of cars arriving or departing.
-@property (nonatomic, retain) NSString *carsPerWeek;
-// Preferred industry as source/dest of cargo.
-@property (nonatomic, retain) InduYard *industry;
-// Existing cargo just being shown for context?
-@property (nonatomic) BOOL isExistingCargo;
-@end
-
-@implementation ProposedCargo
-@synthesize isKeep;
-@synthesize isReceive;
-@synthesize name;
-@synthesize carsPerWeek;
-@synthesize industry;
-@synthesize isExistingCargo;
-
-// Creates a proposed cargo based on an existing Cargo object.
-- (id) initWithExistingCargo: (Cargo*) cargo isReceive: (BOOL) shouldReceive {
-	self = [self init];
-	self.name = [cargo cargoDescription];
-	self.isKeep = [NSNumber numberWithBool: NO];
-	self.isExistingCargo = YES;
-	self.isReceive = shouldReceive;
-	self.industry = (shouldReceive ? [cargo source] : [cargo destination]);
-	self.carsPerWeek = [[cargo carsPerWeek] stringValue];
-	return self;
-}
-
-- (NSString*) receiveString {
-	return (self.isReceive ? @"Receive" : @"Ship");
-}
-@end
-
 
 @interface CargoSelectionCell: UITableViewCell
 @property(retain, nonatomic) IBOutlet UIButton *checkbox;
@@ -97,6 +48,7 @@
 }
 
 - (IBAction) selectCargo: (id) sender {
+    // TODO(bowdidge): Need to mark as keep.
     self.checkbox.selected = !self.checkbox.selected;
 }
 @end
@@ -185,7 +137,7 @@
 		c.name = [cargo objectForKey: @"Name"];
 		// TODO(bowdidge): Consider era.
 		// NSString *era = [cargo objectForKey: @"Era"];
-		c.isKeep = [NSNumber numberWithBool: YES];
+		c.isKeep = [NSNumber numberWithBool: NO];
 		c.isReceive = ([[cargo objectForKey: @"Incoming"] intValue] != 0);
 		c.isExistingCargo = NO;
 		c.industry = likelyDestination;
@@ -236,6 +188,16 @@
     self.suggestedCategories = [myAppDelegate.typicalIndustryStore categoriesForIndustryName: self.selectedIndustry.name];
     [self.categoryPicker reloadAllComponents];
 }
+
+// Create the selected cargos.
+- (IBAction) doCreateCargos: (id) sender {
+    for (ProposedCargo *proposedCargo in self.proposedCargos) {
+        if ([[proposedCargo isKeep] boolValue]) {
+            [proposedCargo createRealCargoWithIndustry: self.selectedIndustry];
+        }
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -308,11 +270,14 @@
     [cell.checkbox setImage: [UIImage imageWithContentsOfFile: filename] forState: UIControlStateSelected];
    
     ProposedCargo *c = [self.proposedCargos objectAtIndex: [indexPath row]];
-    cell.cargoDescription.text = [NSString stringWithFormat: @"%@ from West Coast", c.name];
+    const char* fromTo = [c isReceive] ? "from" : "to";
+    cell.cargoDescription.text = [NSString stringWithFormat: @"%@ %s West Coast", c.name, fromTo];
     if ([c isExistingCargo]) {
-        cell.checkbox.enabled = NO;
+        c.isKeep = [NSNumber numberWithBool: NO];
+       cell.checkbox.enabled = NO;
         cell.cargoDescription.enabled = NO;
     } else {
+        c.isKeep = [NSNumber numberWithBool: NO];
         cell.checkbox.enabled = YES;
         cell.cargoDescription.enabled = YES;
     }

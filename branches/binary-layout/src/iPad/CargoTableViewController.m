@@ -33,6 +33,7 @@
 #import "CargoChooser.h"
 #import "CarTypeChooser.h"
 #import "CargoTableCell.h"
+#import "Industry.h"
 #import "IndustryChooser.h"
 #import "SwitchListColors.h"
 
@@ -230,5 +231,17 @@
     [oldPath release];
 }
 
+// Handles editing actions on table - delete or insert.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Cargo *cargoToDelete = [self cargoAtIndexPath: indexPath];
+        [[cargoToDelete managedObjectContext] deleteObject: cargoToDelete];
+        [self regenerateTableData];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
 
 @end

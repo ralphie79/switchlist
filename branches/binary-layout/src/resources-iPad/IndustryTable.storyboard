@@ -146,16 +146,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WHZ-JC-FKV">
-                                            <rect key="frame" x="555" y="134" width="201" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Help with Cargos for Industry">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="w0r-TM-jwz" kind="push" identifier="suggestCargos" id="hFD-AJ-yAX"/>
-                                            </connections>
-                                        </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Auzerais St." minimumFontSize="17" id="isz-aY-hV0">
                                             <rect key="frame" x="239" y="40" width="157" height="30"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -189,6 +179,16 @@
                                                 <outlet property="delegate" destination="MXg-Vo-AcQ" id="Doc-2Z-5Iu"/>
                                             </connections>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WHZ-JC-FKV">
+                                            <rect key="frame" x="537" y="134" width="211" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <state key="normal" title="Create Cargos for this Industry">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="w0r-TM-jwz" kind="push" identifier="suggestCargos" id="hFD-AJ-yAX"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -402,6 +402,9 @@
                                 <state key="normal" title="Create cargos">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="doCreateCargos:" destination="w0r-TM-jwz" eventType="touchUpInside" id="3ay-o4-DUO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -409,6 +412,7 @@
                     <navigationItem key="navigationItem" id="hg1-iQ-GGf"/>
                     <connections>
                         <outlet property="categoryPicker" destination="JfS-Tl-5co" id="QCV-Ne-zvE"/>
+                        <outlet property="createCargosButton" destination="aET-ZZ-AHn" id="ZRH-SI-Jyt"/>
                         <outlet property="industryName" destination="2Cb-bx-lq7" id="LqN-ma-AMf"/>
                         <outlet property="suggestedCargoView" destination="5to-9Z-ebA" id="ooG-9w-s3l"/>
                     </connections>

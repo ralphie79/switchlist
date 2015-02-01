@@ -89,6 +89,8 @@
 		3E57C5CD12FBDCC600E51008 /* KaufmanSwitchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E57C5CC12FBDCC600E51008 /* KaufmanSwitchListView.m */; };
 		3E5BEDA91A7B4DCC00D14294 /* SwitchList-iPad.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BEDA81A7B4DCC00D14294 /* SwitchList-iPad.entitlements */; };
 		3E5BEDAC1A7B62C400D14294 /* vasona.layoutdb in Resources */ = {isa = PBXBuildFile; fileRef = 3E5BEDAB1A7B62C400D14294 /* vasona.layoutdb */; };
+		3E5BEDB01A7DA85600D14294 /* ProposedCargo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BEDAE1A7DA85600D14294 /* ProposedCargo.m */; };
+		3E5BEDB11A7DA97F00D14294 /* ProposedCargo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BEDAE1A7DA85600D14294 /* ProposedCargo.m */; };
 		3E5E628C160E42EE0074AE1E /* SwitchListEngine.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E9B75B716063FE600891318 /* SwitchListEngine.dylib */; };
 		3E5E629C160E45EA0074AE1E /* SwitchListEngine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9B75B716063FE600891318 /* SwitchListEngine.dylib */; };
 		3E60814213614EA30054DBA1 /* TextSwitchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E60814113614EA30054DBA1 /* TextSwitchListView.m */; };
@@ -693,6 +695,8 @@
 		3E5BEDA81A7B4DCC00D14294 /* SwitchList-iPad.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SwitchList-iPad.entitlements"; sourceTree = "<group>"; };
 		3E5BEDAA1A7B4E0B00D14294 /* Switchlist-iPad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Switchlist-iPad.entitlements"; path = "Switchlist-iPad/Switchlist-iPad.entitlements"; sourceTree = "<group>"; };
 		3E5BEDAB1A7B62C400D14294 /* vasona.layoutdb */ = {isa = PBXFileReference; lastKnownFileType = file; name = vasona.layoutdb; path = "resources-iPad/vasona.layoutdb"; sourceTree = "<group>"; };
+		3E5BEDAD1A7DA85600D14294 /* ProposedCargo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProposedCargo.h; path = Engine/ProposedCargo.h; sourceTree = "<group>"; };
+		3E5BEDAE1A7DA85600D14294 /* ProposedCargo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProposedCargo.m; path = Engine/ProposedCargo.m; sourceTree = "<group>"; };
 		3E60814013614EA30054DBA1 /* TextSwitchListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSwitchListView.h; sourceTree = "<group>"; };
 		3E60814113614EA30054DBA1 /* TextSwitchListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSwitchListView.m; sourceTree = "<group>"; };
 		3E60B66D1318B49C007C094D /* ReportTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTest.h; sourceTree = "<group>"; };
@@ -1375,6 +1379,8 @@
 		3EAAA77E1607093400C3D7A8 /* Cargo Suggestions */ = {
 			isa = PBXGroup;
 			children = (
+				3E5BEDAD1A7DA85600D14294 /* ProposedCargo.h */,
+				3E5BEDAE1A7DA85600D14294 /* ProposedCargo.m */,
 				3EA4891715D85C7C008A169F /* SuggestedCargoController.h */,
 				3EA4891815D85C7C008A169F /* SuggestedCargoController.m */,
 				3EA4879715D83D73008A169F /* TypicalIndustryStore.h */,
@@ -2055,6 +2061,7 @@
 				3EAAA7491606CBAD00C3D7A8 /* RandomNumberGenerator.m in Sources */,
 				3EAAA74B1606CBAD00C3D7A8 /* TrainAssigner.m in Sources */,
 				3EAAA74D1606CBAD00C3D7A8 /* TrainSizeVector.m in Sources */,
+				3E5BEDB11A7DA97F00D14294 /* ProposedCargo.m in Sources */,
 				3EC5392B19B1905C00F2351A /* ICUTemplateMatcher.m in Sources */,
 				3EAAA72A1606CB9500C3D7A8 /* CarType.m in Sources */,
 				3EAAA72B1606CB9500C3D7A8 /* CarTypes.m in Sources */,
@@ -2178,6 +2185,7 @@
 				3EC538F019B16A2600F2351A /* BKClassifier.m in Sources */,
 				3E9B75DB1606402A00891318 /* NSFileManager+DirectoryLocations.m in Sources */,
 				3E9B75DC1606402A00891318 /* NSMigrationManagerCategory.m in Sources */,
+				3E5BEDB01A7DA85600D14294 /* ProposedCargo.m in Sources */,
 				3E9B75DE1606402A00891318 /* Place.m in Sources */,
 				3E9B75E01606402A00891318 /* RandomNumberGenerator.m in Sources */,
 				3EC0ACE319A042C500ABD0E5 /* TemplateCache.m in Sources */,
